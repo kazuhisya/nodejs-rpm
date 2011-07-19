@@ -9,7 +9,7 @@ Group:         Development/Libraries
 License:       MIT License
 URL:           http://nodejs.org
 Source0:       %{_base}-v%{version}.tar.gz
-BuildRoot:     %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
