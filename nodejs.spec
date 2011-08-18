@@ -55,8 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Fri Aug 12 2011 Kazuhisa Hara <kazuhisya@gmail.com>
-- Updated to node.js version 5.4
+- Updated to node.js version 0.5.4
 * Wed Aug  3 2011 Kazuhisa Hara <kazuhisya@gmail.com>
-- Updated to node.js version 5.3
+- Updated to node.js version 0.5.3
 * Tue Jul 19 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Initial version
