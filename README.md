@@ -10,6 +10,6 @@ $ git branch -a
 ~~~
 
 ~~~
-node.js beta versions spec:   remotes/origin/master
+node.js unstable versions spec:   remotes/origin/master
 node.js stable versions spec: remotes/origin/stable
 ~~~
