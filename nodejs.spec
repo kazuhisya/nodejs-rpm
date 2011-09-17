@@ -52,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man1/node.1.gz
 
 %changelog
-* Sun Sep 17 2011 Kazuhisa Hara <kazuhisya@gmail.com>
+* Sun Sep 18 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.4.12
 * Thu Aug 18 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.4.11
