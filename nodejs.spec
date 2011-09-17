@@ -1,7 +1,7 @@
 %define   _base node
 
 Name:          %{_base}js
-Version:       0.4.11
+Version:       0.4.12
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -18,7 +18,7 @@ BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
 
 %description
-Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model. 
+Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
 %prep
@@ -52,6 +52,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man1/node.1.gz
 
 %changelog
+* Sun Sep 17 2011 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.4.12
 * Thu Aug 18 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.4.11
 * Tue Jul 19 2011 Kazuhisa Hara <kazuhisya@gmail.com>
