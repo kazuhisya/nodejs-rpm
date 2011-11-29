@@ -1,7 +1,7 @@
 %define   _base node
 
 Name:          %{_base}js
-Version:       0.5.9
+Version:       0.6.3
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -10,6 +10,8 @@ License:       MIT License
 URL:           http://nodejs.org
 Source0:       %{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root
+Obsoletes:     npm
+Provides:      npm
 
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -46,15 +48,20 @@ rm -rf $RPM_BUILD_ROOT
 #%{_prefix}/lib/pkgconfig/nodejs.pc
 %attr(755,root,root) %{_bindir}/node
 %attr(755,root,root) %{_bindir}/node-waf
+%attr(755,root,root) %{_bindir}/npm
 %dir %{_prefix}/lib/node
 %dir %{_prefix}/lib/node/wafadmin
 %dir %{_prefix}/lib/node/wafadmin/Tools
 %{_prefix}/lib/node/wafadmin/*
+%{_prefix}/lib/node_modules/npm
+%{_mandir}/man1/*
 
 %doc
 /usr/share/man/man1/node.1.gz
 
 %changelog
+* Tue Nov 29 2011 Pete Fritchman <petef@databits.net>
+- Updated to node.js version 0.6.3
 * Tue Oct 11 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.5.9
 * Sun Oct  2 2011 Kazuhisa Hara <kazuhisya@gmail.com>
