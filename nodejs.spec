@@ -60,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man1/node.1.gz
 
 %changelog
+* Sat Mar 31 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.6.14
 * Tue Mar 20 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.6.13
 * Sat Mar  3 2012 Kazuhisa Hara <kazuhisya@gmail.com>
