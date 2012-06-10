@@ -1,7 +1,7 @@
 %define   _base node
 
 Name:          %{_base}js
-Version:       0.6.18
+Version:       0.6.19
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -60,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man1/node.1.gz
 
 %changelog
+* Sun Jun 10 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.6.19
 * Fri May 18 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.6.18
 * Mon May  7 2012 Pete Fritchman <petef@databits.net>
