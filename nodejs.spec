@@ -1,15 +1,15 @@
 %define   _base node
 
 Name:          %{_base}js
-Version:       0.8.3
-Release:       2%{?dist}
+Version:       0.8.4
+Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
 License:       MIT License
 URL:           http://nodejs.org
 Source0:       %{_base}-v%{version}.tar.gz
-BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Obsoletes:     npm
 Provides:      npm
 
@@ -58,6 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man1/node.1.gz
 
 %changelog
+* Sat Jul 28 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.8.4
 * Sat Jul 28 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Fixed issues #4, workaround for Avoid having to
   remove the rpm in the installation section
