@@ -2,7 +2,7 @@
 
 Name:          %{_base}js
 Version:       0.8.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -33,6 +33,7 @@ make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+/bin/sed -Ei " s/ queue\.push\('rm -rf ' \+ npmDir\)//g" tools/installer.js
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -57,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man1/node.1.gz
 
 %changelog
+* Sat Jul 28 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Fixed issues #4, workaround for Avoid having to
+  remove the rpm in the installation section
 * Fri Jul 20 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.3
 * Fri Jul  6 2012 Kazuhisa Hara <kazuhisya@gmail.com>
