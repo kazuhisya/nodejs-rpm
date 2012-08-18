@@ -1,7 +1,7 @@
 %define   _base node
 
 Name:          %{_base}js
-Version:       0.8.6
+Version:       0.8.7
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -38,31 +38,40 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 
 %build
+%ifarch x86_64
+  %define _node_arch x64
+%endif
+%ifarch i366 i686
+  %define _node_arch x86
+%endif
+if [-z %{_node_arch}];then
+  echo "bad arch"
+  exit 1
+fi
+
 ./configure \
     --prefix=/usr \
     --shared-openssl \
     --shared-openssl-includes=%{_includedir} \
     --shared-zlib \
     --shared-zlib-includes=%{_includedir}
-make %{?_smp_mflags}
 make binary %{?_smp_mflags}
 cd $RPM_SOURCE_DIR
-mv $RPM_BUILD_DIR/%{_base}-v%{version}/%{_base}-v%{version}-linux-%{_arch}.tar.gz .
+mv $RPM_BUILD_DIR/%{_base}-v%{version}/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz .
 rm  -rf %{_base}-v%{version}
-tar zxvf %{_base}-v%{version}-linux-%{_arch}.tar.gz
+tar zxvf %{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir  -p $RPM_BUILD_ROOT/usr
-cp -Rp $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_arch}/* $RPM_BUILD_ROOT/usr/
+cp -Rp $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}/* $RPM_BUILD_ROOT/usr/
 mkdir -p $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
 
 for file in ChangeLog LICENSE README.md ; do
-  mv $RPM_BUILD_ROOT/usr/$file $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
+    mv $RPM_BUILD_ROOT/usr/$file $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
 done
 mkdir -p $RPM_BUILD_ROOT/usr/share/%{_base}js
-mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_arch}.tar.gz $RPM_BUILD_ROOT/usr/share/%{_base}js/
-
+mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT/usr/share/%{_base}js/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -88,13 +97,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files binary
 %defattr(-,root,root,-)
-%dir %{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_arch}.tar.gz
+%dir %{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 
 
 %changelog
+* Sun Aug 19 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.8.7
+- Added Architecture check
+- Build came to pass in "make binary" a single
 * Sat Aug 11 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.6
-- Added as a package to build a binary tarball.
+- Added as a package to build a binary tarball
 - Various minor fixes and improvements
 * Sun Aug  5 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.5
