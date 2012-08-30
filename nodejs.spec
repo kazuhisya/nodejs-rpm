@@ -14,6 +14,7 @@ Obsoletes:     npm
 Provides:      npm
 BuildRequires: gcc
 BuildRequires: gcc-c++
+BuildRequires: git
 BuildRequires: make
 BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
@@ -44,7 +45,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %ifarch i366 i686
   %define _node_arch x86
 %endif
-if [-z %{_node_arch}];then
+if [ -z %{_node_arch} ];then
   echo "bad arch"
   exit 1
 fi
