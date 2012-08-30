@@ -44,7 +44,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %ifarch i366 i686
   %define _node_arch x86
 %endif
-if [-z %{_node_arch}];then
+if [ -z %{_node_arch} ];then
   echo "bad arch"
   exit 1
 fi
