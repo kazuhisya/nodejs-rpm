@@ -14,6 +14,7 @@ Obsoletes:     npm
 Provides:      npm
 BuildRequires: gcc
 BuildRequires: gcc-c++
+BuildRequires: git
 BuildRequires: make
 BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
