@@ -102,6 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Oct 15 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.8.12 by @brandonramirez
 * Sat Sep 29 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.11
 - Making Source0 "spectool friendly" by @elus
