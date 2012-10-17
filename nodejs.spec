@@ -2,7 +2,7 @@
 
 Name:          %{_base}js
 Version:       0.8.12
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -12,6 +12,7 @@ Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Obsoletes:     npm
 Provides:      npm
+BuildRequires: tar
 BuildRequires: gcc
 BuildRequires: gcc-c++
 BuildRequires: git
