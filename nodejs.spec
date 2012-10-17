@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Oct 17 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Fixed missing spaces for Fedora 18 (syntax error)
+- Added BuildRequires: tar
 * Mon Oct 15 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.12 by @brandonramirez
 * Sat Sep 29 2012 Kazuhisa Hara <kazuhisya@gmail.com>
