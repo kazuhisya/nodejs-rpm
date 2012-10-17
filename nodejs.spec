@@ -90,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_prefix}/lib/node/wafadmin/Tools
 %{_prefix}/lib/node/wafadmin/*
 %{_prefix}/lib/node_modules/npm
-%dir %{_prefix}/share/doc/%{_base}-v%{version}/*
+%{_prefix}/share/doc/%{_base}-v%{version}/*
 %dir %{_prefix}/lib/dtrace/node.d
 
 %doc
