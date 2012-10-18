@@ -2,7 +2,7 @@
 
 Name:          %{_base}js
 Version:       0.8.12
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -15,7 +15,6 @@ Provides:      npm
 BuildRequires: tar
 BuildRequires: gcc
 BuildRequires: gcc-c++
-BuildRequires: git
 BuildRequires: make
 BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
@@ -103,6 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Oct 18 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Fixed issues #9, Unneeded dependency on git
 * Wed Oct 17 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Fixed missing spaces for Fedora 18 (syntax error)
 - Added BuildRequires: tar
