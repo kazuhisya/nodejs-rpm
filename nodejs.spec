@@ -2,7 +2,7 @@
 
 Name:          %{_base}js
 Version:       0.8.14
-Release:       3%{?dist}
+Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -102,6 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Oct 28 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.8.14 by @Pitel
 * Thu Oct 18 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Fixed issues #9, Unneeded dependency on git
 * Wed Oct 17 2012 Kazuhisa Hara <kazuhisya@gmail.com>
