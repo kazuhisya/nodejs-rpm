@@ -39,10 +39,11 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 
 %build
+%define _node_arch %{nil}
 %ifarch x86_64
   %define _node_arch x64
 %endif
-%ifarch i366 i686
+%ifarch i386 i686
   %define _node_arch x86
 %endif
 if [ -z %{_node_arch} ];then
