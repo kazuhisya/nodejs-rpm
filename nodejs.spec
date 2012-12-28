@@ -1,4 +1,5 @@
 %define   _base node
+%define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
 Name:          %{_base}js
 Version:       0.8.16
@@ -19,6 +20,11 @@ BuildRequires: make
 BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
 BuildRequires: zlib-devel
+%if "%{_dist_ver}" == ".el5"
+# require EPEL
+BuildRequires: python26
+Patch0: node-js.centos5.configure.patch
+%endif
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -37,8 +43,14 @@ This allows Node.js to get excellent performance based on the architectures of m
 %prep
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
+%if "%{_dist_ver}" == ".el5"
+%patch0 -p1
+%endif
 
 %build
+%if "%{_dist_ver}" == ".el5"
+export PYTHON=python26
+%endif
 %define _node_arch %{nil}
 %ifarch x86_64
   %define _node_arch x64
