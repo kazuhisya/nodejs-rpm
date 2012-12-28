@@ -1,0 +1,9 @@
+diff -aurN node-v0.8.16.orig/configure node-v0.8.16/configure
+--- node-v0.8.16.orig/configure	2012-12-28 22:44:59.000000000 +0900
++++ node-v0.8.16/configure	2012-12-28 22:45:23.000000000 +0900
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/env python26
+ import optparse
+ import os
+ import pprint
