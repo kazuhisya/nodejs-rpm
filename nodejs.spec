@@ -13,6 +13,7 @@ Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Obsoletes:     npm
 Provides:      npm
+BuildRequires: redhat-rpm-config
 BuildRequires: tar
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -115,6 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Dec 30 2012 Kazuhisa Hara <kazuhisya@gmail.com>
+- Added patch for CentOS and some BuildRequires by @smellman
 * Mon Dec 17 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.16
 * Sun Dec  2 2012 Kazuhisa Hara <kazuhisya@gmail.com>
