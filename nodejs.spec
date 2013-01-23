@@ -25,8 +25,8 @@ BuildRequires: zlib-devel
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
 BuildRequires: python26
-Patch0: node-js.centos5.configure.patch
 %endif
+Patch0: node-js.centos5.configure.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
