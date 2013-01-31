@@ -1,12 +1,14 @@
 #  node.js RPM spec
-* node.js rpm spec: https://github.com/kazuhisya/nodejs-rpm
-* node.js sorce   : http://nodejs.org/dist/
+* node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
+* node.js source   : http://nodejs.org/dist/
 
-After git clone, to check the version is recommended
+After cloning this repo, we recommend checking the version:
 
     $ git tag
 
-Sorce tgz file from: http://nodejs.org/dist/
+Download the correct node binary tar.gz file for your architecture from: http://nodejs.org/dist/.  E.g.,
 
-## How to build
-See the following URL: [https://github.com/kazuhisya/nodejs-rpm/wiki](https://github.com/kazuhisya/nodejs-rpm/wiki)
+    $ wget http://nodejs.org/dist/v0.8.18/node-v0.8.18-linux-x64.tar.gz
+
+## Building the RPM
+Instructions for building the rpm are available at: [https://github.com/kazuhisya/nodejs-rpm/wiki](https://github.com/kazuhisya/nodejs-rpm/wiki)
