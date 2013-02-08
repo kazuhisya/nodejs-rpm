@@ -93,26 +93,23 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%dir %{_includedir}/node
 %{_includedir}/node/*.h
 %{_includedir}/node/uv-private/*.h
-%attr(755,root,root) %{_bindir}/node
-%attr(755,root,root) %{_bindir}/node-waf
-%attr(755,root,root) %{_bindir}/npm
-%dir %{_prefix}/lib/node
-%dir %{_prefix}/lib/node/wafadmin
-%dir %{_prefix}/lib/node/wafadmin/Tools
-%{_prefix}/lib/node/wafadmin/*
+%{_prefix}/lib/node/wafadmin
 %{_prefix}/lib/node_modules/npm
-%{_prefix}/share/doc/%{_base}-v%{version}/*
-%dir %{_prefix}/lib/dtrace/node.d
+%{_prefix}/share/doc/%{_base}-v%{version}
+%{_prefix}/lib/dtrace/node.d
+%defattr(755,root,root)
+%{_bindir}/node
+%{_bindir}/node-waf
+%{_bindir}/npm
 
 %doc
 /usr/share/man/man1/node.1.gz
 
 %files binary
 %defattr(-,root,root,-)
-%dir %{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
+%{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 
 
 %changelog
