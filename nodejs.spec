@@ -11,6 +11,7 @@ License:       MIT License
 URL:           http://nodejs.org
 Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
+Prefix:        /usr
 Obsoletes:     npm
 Provides:      npm
 BuildRequires: redhat-rpm-config
@@ -65,7 +66,6 @@ if [ -z %{_node_arch} ];then
 fi
 
 ./configure \
-    --prefix=/usr \
     --shared-openssl \
     --shared-openssl-includes=%{_includedir} \
     --shared-zlib \
@@ -113,6 +113,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Feb 22 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.8.20 by @laapsaap
+- Fixed #14
 * Tue Feb 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.19
 - Make formatting more consistent by @adambrod
