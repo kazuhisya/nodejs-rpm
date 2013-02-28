@@ -8,7 +8,7 @@ After cloning this repo, we recommend checking the version:
 
 Download the correct node tar.gz file from: http://nodejs.org/dist/.  E.g.,
 
-    $ wget http://nodejs.org/dist/v0.8.20/node-v0.8.20.tar.gz
+    $ wget http://nodejs.org/dist/v0.8.21/node-v0.8.21.tar.gz
 
 ## Building the RPM
 Instructions for building the rpm are available at: [https://github.com/kazuhisya/nodejs-rpm/wiki](https://github.com/kazuhisya/nodejs-rpm/wiki)
