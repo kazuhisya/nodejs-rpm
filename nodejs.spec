@@ -2,7 +2,7 @@
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
 Name:          %{_base}js
-Version:       0.10.8
+Version:       0.10.9
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -109,6 +109,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Jun  1 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.10.9
 * Sun May 26 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.8
 * Tue May 21 2013 Kazuhisa Hara <kazuhisya@gmail.com>
