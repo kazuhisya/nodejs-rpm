@@ -3,7 +3,7 @@
 
 Name:          %{_base}js
 Version:       0.10.18
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -33,7 +33,7 @@ Node.js is a server-side JavaScript environment that uses an asynchronous event-
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
 %package binary
-Summary: Node.js build binary tarballs
+Summary:       Node.js build binary tarballs
 Group:         Development/Libraries
 License:       MIT License
 URL:           http://nodejs.org
@@ -42,7 +42,18 @@ URL:           http://nodejs.org
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
+%package npm
+Summary:       Node Packaged Modules
+Group:         Development/Libraries
+License:       MIT License
+URL:           http://nodejs.org
+Requires:      nodejs
+
+%description npm
+Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
+This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 %prep
+
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 %if "%{_dist_ver}" == ".el5"
@@ -93,12 +104,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{_prefix}/lib/node_modules/npm
 %{_prefix}/share/doc/%{_base}-v%{version}
 %{_prefix}/lib/dtrace/node.d
 %defattr(755,root,root)
 %{_bindir}/node
-%{_bindir}/npm
 
 %doc
 /usr/share/man/man1/node.1.gz
@@ -107,8 +116,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 
+%files npm
+%defattr(-,root,root,-)
+%{_prefix}/lib/node_modules/npm
+%{_bindir}/npm
 
 %changelog
+* Thu Sep 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Dividing core and npm #25
 * Sun Sep  8 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.18 by @fjordansilva
 * Thu Aug 22 2013 Kazuhisa Hara <kazuhisya@gmail.com>
