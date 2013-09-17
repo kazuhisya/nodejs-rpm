@@ -3,7 +3,7 @@
 
 Name:          %{_base}js
 Version:       0.10.18
-Release:       1%{?dist}
+Release:       3%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -22,6 +22,7 @@ BuildRequires: make
 BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
 BuildRequires: zlib-devel
+BuildRequires: gzip
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
 BuildRequires: python26
@@ -33,7 +34,7 @@ Node.js is a server-side JavaScript environment that uses an asynchronous event-
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
 %package binary
-Summary: Node.js build binary tarballs
+Summary:       Node.js build binary tarballs
 Group:         Development/Libraries
 License:       MIT License
 URL:           http://nodejs.org
@@ -42,7 +43,18 @@ URL:           http://nodejs.org
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
+%package npm
+Summary:       Node Packaged Modules
+Group:         Development/Libraries
+License:       MIT License
+URL:           http://nodejs.org
+Requires:      nodejs
+
+%description npm
+Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
+This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 %prep
+
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 %if "%{_dist_ver}" == ".el5"
@@ -71,10 +83,13 @@ fi
     --shared-zlib \
     --shared-zlib-includes=%{_includedir}
 make binary %{?_smp_mflags}
-cd $RPM_SOURCE_DIR
+
+pushd $RPM_SOURCE_DIR
 mv $RPM_BUILD_DIR/%{_base}-v%{version}/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz .
 rm  -rf %{_base}-v%{version}
 tar zxvf %{_base}-v%{version}-linux-%{_node_arch}.tar.gz
+popd
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -88,17 +103,30 @@ done
 mkdir -p $RPM_BUILD_ROOT/usr/share/%{_base}js
 mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT/usr/share/%{_base}js/
 
+# prefix all manpages with "npm-"
+pushd $RPM_BUILD_ROOT/usr/lib/node_modules/npm/man/
+for dir in *; do
+    mkdir -p $RPM_BUILD_ROOT/usr/share/man/$dir
+    pushd $dir
+    for page in *; do
+        if [[ $page != npm* ]]; then
+        mv $page npm-$page
+    fi
+    done
+    popd
+    cp $dir/* $RPM_BUILD_ROOT/usr/share/man/$dir
+done
+popd
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%{_prefix}/lib/node_modules/npm
 %{_prefix}/share/doc/%{_base}-v%{version}
 %{_prefix}/lib/dtrace/node.d
 %defattr(755,root,root)
 %{_bindir}/node
-%{_bindir}/npm
 
 %doc
 /usr/share/man/man1/node.1.gz
@@ -107,8 +135,22 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 
+%files npm
+%defattr(-,root,root,-)
+%{_prefix}/lib/node_modules/npm
+%{_bindir}/npm
+
+%doc
+/usr/share/man/man1
+/usr/share/man/man3
+/usr/share/man/man5
+/usr/share/man/man7
 
 %changelog
+* Fri Sep 13 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Apply the man file of npm package
+* Thu Sep 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Dividing core and npm #25
 * Sun Sep  8 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.18 by @fjordansilva
 * Thu Aug 22 2013 Kazuhisa Hara <kazuhisya@gmail.com>
