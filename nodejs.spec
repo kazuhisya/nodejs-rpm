@@ -2,8 +2,8 @@
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
 Name:          %{_base}js
-Version:       0.10.18
-Release:       3%{?dist}
+Version:       0.10.19
+Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -23,6 +23,7 @@ BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
 BuildRequires: zlib-devel
 BuildRequires: gzip
+
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
 BuildRequires: python26
@@ -53,8 +54,8 @@ Requires:      nodejs
 %description npm
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
-%prep
 
+%prep
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 %if "%{_dist_ver}" == ".el5"
@@ -90,7 +91,6 @@ rm  -rf %{_base}-v%{version}
 tar zxvf %{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 popd
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir  -p $RPM_BUILD_ROOT/usr
@@ -120,6 +120,7 @@ popd
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 
 %files
 %defattr(-,root,root,-)
@@ -147,6 +148,8 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/man/man7
 
 %changelog
+* Wed Sep 25 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.10.19
 * Fri Sep 13 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Apply the man file of npm package
 * Thu Sep 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
