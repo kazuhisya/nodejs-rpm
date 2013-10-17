@@ -4,7 +4,10 @@ set -e
 RPMBUILD_DIR=${RPMBUILD_DIR:-$HOME/buildrpm}
 NODEJS_VERSION=${NODEJS_VERSION:-v0.10.20}
 NODEJS_SRC=${NODEJS_SRC:-http://nodejs.org/dist/$NODEJS_VERSION/node-$NODEJS_VERSION.tar.gz}
-NODEJSRPM_DIR=$PWD
+
+pushd `dirname $0` > /dev/null
+NODEJSRPM_DIR=$(pwd)
+popd > /dev/null
 
 cd $RPMBUILD_DIR/SOURCES
 wget $NODEJS_SRC
