@@ -38,4 +38,4 @@ when you try to build on el5, must enable the EPEL repository.
     $ cd /path/to/nodejs-rpm # git dir
     $ ./build.sh
     $ cd ~/rpmbuild/RPMS/x86_64/
-    $ sudo yum install ./nodejs-X.X.X-X.el6.x86_64.rpm ./nodejs-npm-X.X.X-X.el6.x86_64.rpm --nogpgcheck
+    $ sudo yum install ./nodejs-X.X.X-X.x86_64.rpm ./nodejs-npm-X.X.X-X.x86_64.rpm --nogpgcheck
