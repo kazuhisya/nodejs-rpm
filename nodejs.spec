@@ -148,6 +148,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 /usr/share/man/man7
 
 %changelog
+* Tue Oct 22 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.10.21 by @blackbeam
 * Thu Oct  3 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.20 by @fjordansilva
 * Wed Sep 25 2013 Kazuhisa Hara <kazuhisya@gmail.com>
