@@ -19,6 +19,8 @@ However, Fedora15 or later work. maybe.
 
     $ sudo yum install -y rpm-build rpmdevtools openssl-devel zlib-devel redhat-rpm-config gcc gcc-c++ make libstdc++-devel
     $ rpmdev-setuptree
+
+    $ cd /path/to/nodejs-rpm # git dir
     $ ./build.sh
     $ cd ~/rpmbuild/RPMS/x86_64/
     $ sudo yum install ./nodejs-X.X.X-X.el6.x86_64.rpm ./nodejs-npm-X.X.X-X.el6.x86_64.rpm --nogpgcheck
@@ -32,6 +34,8 @@ when you try to build on el5, must enable the EPEL repository.
     $ mkdir ~/rpmbuild
     $ cd ~/rpmbuild
     $ rpmdev-setuptree
+
+    $ cd /path/to/nodejs-rpm # git dir
     $ ./build.sh
     $ cd ~/rpmbuild/RPMS/x86_64/
     $ sudo yum install ./nodejs-X.X.X-X.el6.x86_64.rpm ./nodejs-npm-X.X.X-X.el6.x86_64.rpm --nogpgcheck
