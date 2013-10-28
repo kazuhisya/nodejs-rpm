@@ -12,8 +12,6 @@ URL:           http://nodejs.org
 Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Prefix:        /usr
-Obsoletes:     npm
-Provides:      npm
 BuildRequires: redhat-rpm-config
 BuildRequires: tar
 BuildRequires: gcc
@@ -49,6 +47,8 @@ Summary:       Node Packaged Modules
 Group:         Development/Libraries
 License:       MIT License
 URL:           http://nodejs.org
+Obsoletes:     npm
+Provides:      npm
 Requires:      nodejs
 
 %description npm
@@ -148,6 +148,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 /usr/share/man/man7
 
 %changelog
+* Mon Oct 28 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Moved Obsoletes tag
 * Tue Oct 22 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.21 by @blackbeam
 * Thu Oct  3 2013 Kazuhisa Hara <kazuhisya@gmail.com>
