@@ -2,7 +2,7 @@
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
 Name:          %{_base}js
-Version:       0.10.23
+Version:       0.10.24
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -52,6 +52,15 @@ Provides:      npm
 Requires:      nodejs
 
 %description npm
+Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
+This allows Node.js to get excellent performance based on the architectures of many Internet applications.
+
+%package devel
+Summary:<------>Header files for %{name}
+Group: ><------>Development/Libraries
+Requires:<----->%{name}
+
+%description devel
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
@@ -147,7 +156,12 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 /usr/share/man/man5
 /usr/share/man/man7
 
+%files devel
+%{_includedir}/node/
+
 %changelog
+* Mon Dec 23 2013 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.10.24
 * Thu Dec 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.23
 * Thu Nov 14 2013 Kazuhisa Hara <kazuhisya@gmail.com>
