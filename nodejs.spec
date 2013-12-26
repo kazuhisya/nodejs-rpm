@@ -56,9 +56,9 @@ Node.js is a server-side JavaScript environment that uses an asynchronous event-
 This allows Node.js to get excellent performance based on the architectures of many Internet applications.
 
 %package devel
-Summary:<------>Header files for %{name}
-Group: ><------>Development/Libraries
-Requires:<----->%{name}
+Summary:       Header files for %{name}
+Group:         Development/Libraries
+Requires:      %{name}
 
 %description devel
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
