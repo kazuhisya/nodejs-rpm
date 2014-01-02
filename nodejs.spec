@@ -3,7 +3,7 @@
 
 Name:          %{_base}js
 Version:       0.10.24
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -100,6 +100,11 @@ rm  -rf %{_base}-v%{version}
 tar zxvf %{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 popd
 
+%pre
+getent group node >/dev/null || groupadd -r node
+getent passwd node >/dev/null || useradd -r -g node -s /sbin/nologin -c "NodeJS service account" node
+exit 0
+
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir  -p $RPM_BUILD_ROOT/usr
@@ -160,6 +165,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_includedir}/node/
 
 %changelog
+* Thu Jan 02 2014 Michael Bell <mbell8903@yahoo.com>
+- Added node user and group to system
 * Mon Dec 23 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.24
 * Thu Dec 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
