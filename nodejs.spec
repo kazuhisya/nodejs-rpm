@@ -2,7 +2,7 @@
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
 Name:          %{_base}js
-Version:       0.10.26
+Version:       0.10.27
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -134,7 +134,6 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %files
 %defattr(-,root,root,-)
 %{_prefix}/share/doc/%{_base}-v%{version}
-%{_prefix}/lib/dtrace/node.d
 %defattr(755,root,root)
 %{_bindir}/node
 
@@ -160,6 +159,9 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_includedir}/node/
 
 %changelog
+* Wed May  7 2014 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.10.27
+- Removed dtrace file
 * Wed Feb 19 2014 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.26
 * Mon Jan 27 2014 Kazuhisa Hara <kazuhisya@gmail.com>
