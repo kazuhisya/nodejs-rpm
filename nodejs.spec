@@ -3,7 +3,7 @@
 
 Name:          %{_base}js
 Version:       0.10.29
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -150,7 +150,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_bindir}/npm
 
 %doc
-/usr/share/man/man1
+/usr/share/man/man1/npm*
 /usr/share/man/man3
 /usr/share/man/man5
 /usr/share/man/man7
@@ -159,6 +159,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_includedir}/node/
 
 %changelog
+* Fri Jul 25  2014 Kazuhisa Hara <kazuhisya@gmail.com>
+- Fixed #33 some manfile conflict
 * Thu Jun 19 2014 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.29
 * Wed May  7 2014 Kazuhisa Hara <kazuhisya@gmail.com>
