@@ -216,7 +216,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 - Updated to node.js version 0.10.7
 * Thu May 16 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.6
-* Fri May  1 2013 Andrew Grimberg <agrimberg@linuxfoundation.org>
+* Wed May  1 2013 Andrew Grimberg <agrimberg@linuxfoundation.org>
 - Updated to node.js version 0.10.5
 * Fri Apr 19 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.4
@@ -317,7 +317,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 - Updated to node.js version 0.5.9
 * Sun Oct  2 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.5.8
-* Sat Sep 18 2011 Kazuhisa Hara <kazuhisya@gmail.com>
+* Sun Sep 18 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.5.7
 * Sat Sep 10 2011 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.5.6
