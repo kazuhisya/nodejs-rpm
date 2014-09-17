@@ -1,6 +1,6 @@
 BASE := node
 NAME := $(BASE)js
-VERSION := $(shell grep Version: $(NAME).spec | cut -d " " -f 2)
+VERSION := $(shell grep Version: $(NAME).spec | tr -s " "| cut -d " " -f 2)
 
 rpm:
 	spectool -g  $(NAME).spec
