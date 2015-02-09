@@ -1,8 +1,11 @@
 %define   _base node
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
 
+%global tapsetroot /usr/share/systemtap
+%global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
+
 Name:          %{_base}js
-Version:       0.10.36
+Version:       0.12.0
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -157,6 +160,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 
 %files devel
 %{_includedir}/node/
+%{tapsetroot}
 
 %changelog
 * Tue Feb  3 2015 Kazuhisa Hara <kazuhisya@gmail.com>
