@@ -27,7 +27,7 @@ BuildRequires: gzip
 
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
-BuildRequires: python26
+BuildRequires: python27
 %endif
 Patch0: node-js.centos5.configure.patch
 
@@ -76,7 +76,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 
 %build
 %if "%{_dist_ver}" == ".el5"
-export PYTHON=python26
+export PYTHON=python27
 %endif
 %define _node_arch %{nil}
 %ifarch x86_64
