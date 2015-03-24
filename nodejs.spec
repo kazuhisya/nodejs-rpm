@@ -24,6 +24,7 @@ BuildRequires: openssl-devel
 BuildRequires: libstdc++-devel
 BuildRequires: zlib-devel
 BuildRequires: gzip
+BuildRequires: python
 
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
