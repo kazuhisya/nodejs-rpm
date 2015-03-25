@@ -5,7 +5,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       0.12.0
+Version:       0.12.1
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -164,6 +164,12 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Wed Mar 25 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.12.1
+- Fixed dependency to python27 by @Gillingham and @kvervo
+- Fixed BuildRequires by @no1youknowz
+* Mon Feb  9 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 0.12.0
 * Tue Feb  3 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.10.36
 * Tue Feb  3 2015 Kazuhisa Hara <kazuhisya@gmail.com>
@@ -301,7 +307,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 - Updated to node.js version 0.8.4
 * Sat Jul 28 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Fixed issues #4, workaround for Avoid having to
-  remove the rpm in the installation section
+- remove the rpm in the installation section
 * Fri Jul 20 2012 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.3
 * Fri Jul  6 2012 Kazuhisa Hara <kazuhisya@gmail.com>
