@@ -36,3 +36,23 @@
                '../../tools/gen-postmortem-metadata.py',
                '<@(_outputs)',
                '<@(heapobject_files)'
+--- node-v0.12.5.orig/tools/icu/icu-generic.gyp	2015-06-22 18:22:53.000000000 +0000
++++ node-v0.12.5/tools/icu/icu-generic.gyp	2015-06-24 21:21:57.000000000 +0000
+@@ -208,7 +208,7 @@
+                   'action_name': 'icutrim',
+                   'inputs': [ '<(icu_data_in)', 'icu_small.json' ],
+                   'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/icutmp/icudt<(icu_ver_major)<(icu_endianness).dat' ],
+-                  'action': [ 'python',
++                  'action': [ 'python2.7',
+                               'icutrim.py',
+                               '-P', '../../<(CONFIGURATION_NAME)',
+                               '-D', '<(icu_data_in)',
+@@ -289,7 +289,7 @@
+                   'action_name': 'icutrim',
+                   'inputs': [ '<(icu_data_in)', 'icu_small.json' ],
+                   'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/icutmp/icudt<(icu_ver_major)<(icu_endianness).dat' ],
+-                  'action': [ 'python',
++                  'action': [ 'python2.7',
+                               'icutrim.py',
+                               '-P', '<(PRODUCT_DIR)',
+                               '-D', '<(icu_data_in)',

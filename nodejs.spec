@@ -31,7 +31,7 @@ BuildRequires: python
 BuildRequires: python27
 %endif
 Patch0: node-js.centos5.configure.patch
-Patch1: node-js.centos5.v8.gyp.patch
+Patch1: node-js.centos5.gyp.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
