@@ -77,7 +77,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 
 %build
 %if "%{_dist_ver}" == ".el5"
-export PYTHON=python27
+export PYTHON=python2.7
 %endif
 %define _node_arch %{nil}
 %ifarch x86_64
