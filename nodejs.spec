@@ -31,6 +31,7 @@ BuildRequires: python
 BuildRequires: python27
 %endif
 Patch0: node-js.centos5.configure.patch
+Patch1: node-js.centos5.gyp.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -73,11 +74,12 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 %if "%{_dist_ver}" == ".el5"
 %patch0 -p1
+%patch1 -p1
 %endif
 
 %build
 %if "%{_dist_ver}" == ".el5"
-export PYTHON=python27
+export PYTHON=python2.7
 %endif
 %define _node_arch %{nil}
 %ifarch x86_64

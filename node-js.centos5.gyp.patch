@@ -1,0 +1,58 @@
+--- node-v0.12.5.orig/deps/v8/tools/gyp/v8.gyp	2015-06-22 18:22:53.000000000 +0000
++++ node-v0.12.5/deps/v8/tools/gyp/v8.gyp	2015-06-24 21:13:41.000000000 +0000
+@@ -1353,7 +1353,7 @@
+             'outputs': [
+               '<(PRODUCT_DIR)/natives_blob.bin',
+             ],
+-            'action': ['python', '<@(_inputs)', '<@(_outputs)'],
++            'action': ['python2.7', '<@(_inputs)', '<@(_outputs)'],
+           }],
+         }],
+         ['want_separate_host_toolset==1', {
+@@ -1435,7 +1435,7 @@
+             '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
+             'CORE',
+@@ -1462,7 +1462,7 @@
+             '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
+             'EXPERIMENTAL',
+@@ -1500,7 +1500,7 @@
+               '<(SHARED_INTERMEDIATE_DIR)/debug-support.cc',
+             ],
+             'action': [
+-              'python',
++              'python2.7',
+               '../../tools/gen-postmortem-metadata.py',
+               '<@(_outputs)',
+               '<@(heapobject_files)'
+--- node-v0.12.5.orig/tools/icu/icu-generic.gyp	2015-06-22 18:22:53.000000000 +0000
++++ node-v0.12.5/tools/icu/icu-generic.gyp	2015-06-24 21:21:57.000000000 +0000
+@@ -208,7 +208,7 @@
+                   'action_name': 'icutrim',
+                   'inputs': [ '<(icu_data_in)', 'icu_small.json' ],
+                   'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/icutmp/icudt<(icu_ver_major)<(icu_endianness).dat' ],
+-                  'action': [ 'python',
++                  'action': [ 'python2.7',
+                               'icutrim.py',
+                               '-P', '../../<(CONFIGURATION_NAME)',
+                               '-D', '<(icu_data_in)',
+@@ -289,7 +289,7 @@
+                   'action_name': 'icutrim',
+                   'inputs': [ '<(icu_data_in)', 'icu_small.json' ],
+                   'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/icutmp/icudt<(icu_ver_major)<(icu_endianness).dat' ],
+-                  'action': [ 'python',
++                  'action': [ 'python2.7',
+                               'icutrim.py',
+                               '-P', '<(PRODUCT_DIR)',
+                               '-D', '<(icu_data_in)',
