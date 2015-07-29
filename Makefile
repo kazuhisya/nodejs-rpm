@@ -11,4 +11,5 @@ rpm:
 		--define "_topdir $(PWD)/dist" \
 		--define "buildroot $(PWD)/dist/install" \
 		--clean \
+		--quiet \
 		$(NAME).spec
