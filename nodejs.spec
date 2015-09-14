@@ -5,7 +5,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       0.12.7
+Version:       4.0.0
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -112,9 +112,11 @@ mkdir  -p $RPM_BUILD_ROOT/usr
 cp -Rp $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}/* $RPM_BUILD_ROOT/usr/
 mkdir -p $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
 
-for file in ChangeLog LICENSE README.md ; do
+for file in CHANGELOG.md LICENSE README.md ; do
     mv $RPM_BUILD_ROOT/usr/$file $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
 done
+mv $RPM_BUILD_ROOT/usr/share/doc/node/* $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
+rm -rf $RPM_BUILD_ROOT/usr/share/doc/node
 mkdir -p $RPM_BUILD_ROOT/usr/share/%{_base}js
 mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT/usr/share/%{_base}js/
 
@@ -166,6 +168,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Mon Sep 14 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 4.0.0
 * Thu Jul  9 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.12.7
 * Mon Jul  6 2015 Kazuhisa Hara <kazuhisya@gmail.com>
