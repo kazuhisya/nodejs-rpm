@@ -6,7 +6,7 @@
 
 Name:          %{_base}js
 Version:       4.1.0
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -30,6 +30,13 @@ BuildRequires: python
 # require EPEL
 BuildRequires: python27
 %endif
+
+%if "%{_dist_ver}" == ".el6"
+# require devtoolset-3 and scl
+BuildRequires: python27
+BuildRequires: devtoolset-3-gcc-c++
+%endif
+
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
 
@@ -72,6 +79,7 @@ This allows Node.js to get excellent performance based on the architectures of m
 %prep
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
+
 %if "%{_dist_ver}" == ".el5"
 %patch0 -p1
 %patch1 -p1
@@ -81,6 +89,12 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %if "%{_dist_ver}" == ".el5"
 export PYTHON=python2.7
 %endif
+
+%if "%{_dist_ver}" == ".el6"
+source /opt/rh/devtoolset-3/enable
+source /opt/rh/python27/enable
+%endif
+
 %define _node_arch %{nil}
 %ifarch x86_64
   %define _node_arch x64
@@ -168,6 +182,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Fri Sep 18 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+- Fixed el6 build env preferences #43
 * Thu Sep 17 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 4.1.0
 * Mon Sep 14 2015 Kazuhisa Hara <kazuhisya@gmail.com>

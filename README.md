@@ -16,7 +16,9 @@ Tested working (as sane as I could test for) on:
     * This spec is tested under el7, el6 and el5 only.
     * However, Fedora15 or later work. maybe.
     * when you try to build on el5, must enable the EPEL repository.
-
+    * when you try to build on el6, must enable `devtoolset-3` and `SCL` repository.
+        - RHEL6.x: [Red Hat Developer Toolset](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/) , [Red Hat Software Collections](https://access.redhat.com/documentation/en-US/Red_Hat_Software_Collections/index.html)
+        - CentOS6.x: [Devtoolset-3 — Software Collections](https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/) , SCL: run `yum install -y centos-release-SCL`
 
 setting up:
 
