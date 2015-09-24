@@ -43,11 +43,11 @@ $ make rpm
 
 el6 :Software Collections and Devtoolset
 
-install package:
-
 ```bash
 $ scl enable python27 devtoolset-3 'make rpm'
 ```
+
+install package:
 
 ```bash
 $ cd ./dist/RPMS/x86_64/
