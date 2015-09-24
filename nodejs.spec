@@ -6,7 +6,7 @@
 
 Name:          %{_base}js
 Version:       4.1.0
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -29,12 +29,6 @@ BuildRequires: python
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
 BuildRequires: python27
-%endif
-
-%if "%{_dist_ver}" == ".el6"
-# require devtoolset-3 and scl
-BuildRequires: python27
-BuildRequires: devtoolset-3-gcc-c++
 %endif
 
 Patch0: node-js.centos5.configure.patch
@@ -88,11 +82,6 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %build
 %if "%{_dist_ver}" == ".el5"
 export PYTHON=python2.7
-%endif
-
-%if "%{_dist_ver}" == ".el6"
-source /opt/rh/devtoolset-3/enable
-source /opt/rh/python27/enable
 %endif
 
 %define _node_arch %{nil}
@@ -182,6 +171,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Thu Sep 24 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+- SCL is no longer needed in BuildRequires, move to Makefile.
 * Fri Sep 18 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Fixed el6 build env preferences #43
 * Thu Sep 17 2015 Kazuhisa Hara <kazuhisya@gmail.com>
