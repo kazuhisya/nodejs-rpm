@@ -5,7 +5,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.1.1
+Version:       4.1.2
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -171,6 +171,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Tue Oct  6 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+- Updated to node.js version 4.1.2
 * Thu Sep 24 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - SCL is no longer needed in BuildRequires, move to Makefile.
 - Updated to node.js version 4.1.1

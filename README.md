@@ -20,15 +20,14 @@ Tested working (as sane as I could test for) on:
         - RHEL5.x: [Red Hat Developer Toolset 2](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/2/)
         - CentOS5.x: [devtools-2](http://people.centos.org/tru/devtools-2/readme)
 - Fedora 19 x86_64
-    - This spec is tested under el7, el6 and el5 only.
-    - However, Fedora15 or later work. maybe.
+    - Fedora15 or later work. maybe.
 
 
 
 Prerequisites:
 
 - Python 2.7
-- `gcc` and `g++ 4.8` or newer
+- `gcc` and `g++` 4.8 or newer
 
 
 ## Build (el7, el6)
