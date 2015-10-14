@@ -5,7 +5,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.2.0
+Version:       4.2.1
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -171,18 +171,20 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
-* Tue Oct 13 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+* Wed Oct 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-1
+- Updated to node.js version 4.2.1
+* Tue Oct 13 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.0-1
 - Updated to node.js version 4.2.0
-* Tue Oct  6 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+* Tue Oct  6 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.2-1
 - Updated to node.js version 4.1.2
-* Thu Sep 24 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+* Thu Sep 24 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.1-1
 - SCL is no longer needed in BuildRequires, move to Makefile.
 - Updated to node.js version 4.1.1
-* Fri Sep 18 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+* Fri Sep 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.0-2
 - Fixed el6 build env preferences #43
-* Thu Sep 17 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+* Thu Sep 17 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.0-1
 - Updated to node.js version 4.1.0
-* Mon Sep 14 2015 Kazuhisa Hara <kazuhisya@gmail.com>
+* Mon Sep 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.0.0-1
 - Updated to node.js version 4.0.0
 * Thu Jul  9 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.12.7
