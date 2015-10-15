@@ -11,7 +11,7 @@ Summary:       Node.js is a server-side JavaScript environment that uses an asyn
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
 License:       MIT License
-URL:           http://nodejs.org
+URL:           https://nodejs.org
 Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Prefix:        /usr
@@ -171,6 +171,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Tue Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
+- Updated url to use HTTPS
 * Wed Oct 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-1
 - Updated to node.js version 4.2.1
 * Tue Oct 13 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.0-1
