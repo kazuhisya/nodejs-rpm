@@ -1,6 +1,6 @@
 #  node.js RPM spec
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
-- node.js source   : http://nodejs.org/dist/
+- node.js source   : https://nodejs.org/dist/
 
 
 # Building the RPM
