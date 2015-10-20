@@ -1,0 +1,20 @@
+--- node-v4.2.1.orig/tools/icu/icu-generic.gyp	2015-10-19 18:27:56.000000000 +0900
++++ node-v4.2.1/tools/icu/icu-generic.gyp	2015-10-19 20:23:13.000000000 +0900
+@@ -219,7 +219,7 @@
+                   'action_name': 'icutrim',
+                   'inputs': [ '<(icu_data_in)', 'icu_small.json' ],
+                   'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/icutmp/icudt<(icu_ver_major)<(icu_endianness).dat' ],
+-                  'action': [ 'python',
++                  'action': [ 'python2.7',
+                               'icutrim.py',
+                               '-P', '../../<(CONFIGURATION_NAME)',
+                               '-D', '<(icu_data_in)',
+@@ -300,7 +300,7 @@
+                   'action_name': 'icutrim',
+                   'inputs': [ '<(icu_data_in)', 'icu_small.json' ],
+                   'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/icutmp/icudt<(icu_ver_major)<(icu_endianness).dat' ],
+-                  'action': [ 'python',
++                  'action': [ 'python2.7',
+                               'icutrim.py',
+                               '-P', '<(PRODUCT_DIR)',
+                               '-D', '<(icu_data_in)',

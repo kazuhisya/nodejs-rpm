@@ -6,7 +6,7 @@
 
 Name:          %{_base}js
 Version:       4.2.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -33,6 +33,7 @@ BuildRequires: python27
 
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
+Patch2: node-js.centos5.icu.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -77,6 +78,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %if "%{_dist_ver}" == ".el5"
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 %endif
 
 %build
@@ -171,6 +173,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Tue Oct 20 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-2
+- Fix compilation on el5 (icu)
 * Tue Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
 - Updated url to use HTTPS
 * Wed Oct 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-1
