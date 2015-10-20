@@ -16,7 +16,7 @@ Tested working (as sane as I could test for) on:
         - CentOS6.x: [Devtoolset-3](https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/) , SCL: run `yum install -y centos-release-SCL`
         - `yum install -y devtoolset-3-gcc-c++ python27`
 - RHEL/CentOS/SL/OL 5 x86_64
-    - when you try to build on el5, you can use `devtoolset-2` (`devtoolset-2-gcc-c++`)
+    - when you try to build on el5, you can use `devtoolset-2` (`devtoolset-2-gcc-c++`, `devtoolset-2-binutils`)
         - RHEL5.x: [Red Hat Developer Toolset 2](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/2/)
         - CentOS5.x: [devtools-2](http://people.centos.org/tru/devtools-2/readme)
 - Fedora 19 x86_64
@@ -67,7 +67,7 @@ $ sudo yum install ./nodejs-X.X.X-X.el6.x86_64.rpm ./nodejs-npm-X.X.X-X.el6.x86_
 
 ## Build (el5)
 
-el5 : with Devtoolset
+el5 : with Devtoolset and python27
 
 ```bash
 $ sudo yum install -y yum-utils rpmdevtools redhat-rpm-config tar make openssl-devel libstdc++-devel zlib-devel gzip 
@@ -75,7 +75,7 @@ $ sudo yum install -y devtoolset-2-gcc-c++ python27
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
 $ cd nodejs-rpm
 $ rpmdev-setuptree
-$ spectool -g ./nodejs.spec
+$ curl -OL https://nodejs.org/dist/vX.X.X/node-vX.X.X.tar.gz
 $ cp *.patch ~/rpmbuild/SOURCES/ ; cp *.md ~/rpmbuild/SOURCES/ ; cp *.tar.gz ~/rpmbuild/SOURCES/ 
 $ scl enable devtoolset-2 'rpmbuild -ba ./nodejs.spec'
 ```
