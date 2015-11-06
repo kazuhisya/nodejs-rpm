@@ -42,6 +42,7 @@ git clone and make:
 
 ```bash
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
+# If you want to use the LTS version: git clone -b LTS https://github.com/kazuhisya/nodejs-rpm.git
 $ cd nodejs-rpm
 $ sudo yum-builddep ./nodejs.spec
 ```
