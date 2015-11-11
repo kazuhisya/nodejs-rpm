@@ -1,4 +1,7 @@
 #  node.js RPM spec
+
+[![circle](https://circleci.com/gh/kazuhisya/nodejs-rpm.svg?style=shield&circle-token=89f2e676d1622c1c4a843ec0f6fd97c4d758b05c)](https://circleci.com/gh/kazuhisya/nodejs-rpm)
+
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
 - node.js source   : https://nodejs.org/dist/
 
