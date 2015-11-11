@@ -1,0 +1,10 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker build -t nodejs-rpm .
+test:
+  override:
+    - docker run -ti nodejs-rpm /bin/true
+    - docker run -ti nodejs-rpm node -v
