@@ -5,7 +5,11 @@ dependencies:
   override:
     - docker info
     - docker build -t nodejs-rpm .
+    - CONTAINERID=$(docker run -d nodejs-rpm /bin/bash -c)
+
 test:
   override:
     - docker run -ti nodejs-rpm /bin/true
     - docker run -ti nodejs-rpm node -v
+  post:
+    - docker cp -rf $CONTAINERID:/nodejs-rpm/dist/* $CIRCLE_ARTIFACTS
