@@ -5,11 +5,10 @@ dependencies:
   override:
     - docker info
     - docker build -t kazuhisya/nodejs-rpm .
-    - CONTAINERID=$(docker run -d kazuhisya/nodejs-rpm /bin/bash -c)
 
 test:
   override:
     - docker run -ti kazuhisya/nodejs-rpm /bin/true
     - docker run -ti kazuhisya/nodejs-rpm node -v
   post:
-    - docker cp $CONTAINERID:/nodejs-rpm/dist $CIRCLE_ARTIFACTS/
+    - docker cp $(docker ps -lq):/nodejs-rpm/dist $CIRCLE_ARTIFACTS
