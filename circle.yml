@@ -12,4 +12,4 @@ test:
     - docker run -ti nodejs-rpm /bin/true
     - docker run -ti nodejs-rpm node -v
   post:
-    - docker cp -rf $CONTAINERID:/nodejs-rpm/dist/* $CIRCLE_ARTIFACTS
+    - docker cp $CONTAINERID:/nodejs-rpm/dist $CIRCLE_ARTIFACTS/
