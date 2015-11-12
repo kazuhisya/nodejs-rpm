@@ -3,6 +3,7 @@ machine:
     - docker
 dependencies:
   override:
+    - docker info
     - docker build -t nodejs-rpm .
 test:
   override:
