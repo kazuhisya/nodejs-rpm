@@ -1,6 +1,7 @@
---- node-v4.2.1.orig/deps/v8/tools/gyp/v8.gyp	2015-10-19 18:27:57.000000000 +0900
-+++ node-v4.2.1/deps/v8/tools/gyp/v8.gyp	2015-10-19 19:21:45.000000000 +0900
-@@ -1696,14 +1696,14 @@
+diff -aurN node-v5.0.0.orig/deps/v8/tools/gyp/v8.gyp node-v5.0.0/deps/v8/tools/gyp/v8.gyp
+--- node-v5.0.0.orig/deps/v8/tools/gyp/v8.gyp	2015-10-29 12:22:06.000000000 +0000
++++ node-v5.0.0/deps/v8/tools/gyp/v8.gyp	2015-11-13 11:17:05.570676239 +0000
+@@ -1723,14 +1723,14 @@
                        '<(PRODUCT_DIR)/natives_blob_host.bin',
                      ],
                      'action': [
@@ -17,7 +18,7 @@
                      ],
                    }],
                  ],
-@@ -1712,7 +1712,7 @@
+@@ -1739,7 +1739,7 @@
                    '<(PRODUCT_DIR)/natives_blob.bin',
                  ],
                  'action': [
@@ -26,7 +27,7 @@
                  ],
                }],
              ],
-@@ -1812,7 +1812,7 @@
+@@ -1847,7 +1847,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
            ],
            'action': [
@@ -35,7 +36,7 @@
              '../../tools/js2c.py',
              '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
              'CORE',
-@@ -1838,7 +1838,7 @@
+@@ -1873,7 +1873,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
            ],
            'action': [
@@ -44,7 +45,16 @@
              '../../tools/js2c.py',
              '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
              'EXPERIMENTAL',
-@@ -1863,7 +1863,7 @@
+@@ -1898,7 +1898,7 @@
+             '<(SHARED_INTERMEDIATE_DIR)/code-stub-libraries.cc',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/code-stub-libraries.cc',
+             'CODE_STUB',
+@@ -1923,7 +1923,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/extras-libraries.cc',
            ],
            'action': [
@@ -53,7 +63,7 @@
              '../../tools/js2c.py',
              '<(SHARED_INTERMEDIATE_DIR)/extras-libraries.cc',
              'EXTRAS',
-@@ -1900,7 +1900,7 @@
+@@ -1960,7 +1960,7 @@
                '<(SHARED_INTERMEDIATE_DIR)/debug-support.cc',
              ],
              'action': [
