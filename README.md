@@ -44,6 +44,10 @@
 - Python 2.7
 - `gcc` and `g++` 4.8 or newer
 
+## Docker (el7, el6, el5)
+
+- See also: [docker/README.md](https://github.com/kazuhisya/nodejs-rpm/blob/master/docker/README.md)
+- You can also try this:  [Docker Hub kazuhisya/nodejs-rpm](https://hub.docker.com/r/kazuhisya/nodejs-rpm/) (el7 only)
 
 ## Build (el7, el6)
 
