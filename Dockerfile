@@ -2,7 +2,7 @@ FROM centos:7
 MAINTAINER Kazuhisa Hara <kazuhisya@gmail.com>
 
 RUN yum install -y yum-utils rpmdevtools make git
-RUN git clone https://github.com/kazuhisya/nodejs-rpm.git
+RUN git clone --depth=1 https://github.com/kazuhisya/nodejs-rpm.git
 
 WORKDIR /nodejs-rpm
 RUN yum-builddep -y ./nodejs.spec
