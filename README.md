@@ -17,6 +17,7 @@
 ### Probably it works
 
 - Fedora20 x86_64 or later (maybe)
+
 - RHEL/CentOS/SL/OL 6 x86_64
     - when you try to build on el6, can use `devtoolset-3` and `SCL` repository
         - Developer Toolset 3
@@ -25,6 +26,8 @@
         - Software Collections
             - RHEL6.x: [Red Hat Software Collections](https://access.redhat.com/documentation/en-US/Red_Hat_Software_Collections/index.html)
             - CentOS6.x: install `centos-release-SCL` package
+    - `devtoolset-3-gcc-c++`, `devtoolset-3-binutils`, `python27`
+
 - RHEL/CentOS/SL/OL 5 x86_64
     - when you try to build on el5, you can use `devtoolset-2` and `python27`
         - Developer Toolset 2
@@ -32,7 +35,7 @@
             - CentOS5.x: [devtools-2](http://people.centos.org/tru/devtools-2/readme)
         - Python 2.7
             - [IUS Community Project](https://ius.io/)
-
+	- `devtoolset-2-gcc-c++`, `devtoolset-2-binutils`, `python27`
 
 
 
