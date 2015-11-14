@@ -1,0 +1,15 @@
+FROM centos:6
+MAINTAINER Kazuhisa Hara <kazuhisya@gmail.com>
+
+RUN yum install -y centos-release-SCL epel-release
+RUN yum install -y https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/epel-6-x86_64/download/rhscl-devtoolset-3-epel-6-x86_64.noarch.rpm
+RUN yum install -y yum-utils rpmdevtools make git devtoolset-3-gcc-c++ devtoolset-3-binutils python27
+RUN git clone --depth=1 https://github.com/kazuhisya/nodejs-rpm.git
+
+WORKDIR /nodejs-rpm
+RUN yum-builddep -y ./nodejs.spec
+RUN scl enable python27 devtoolset-3 'make rpm'
+RUN yum install -y \
+        --nogpgcheck \
+        ./dist/RPMS/x86_64/nodejs-*.rpm
+CMD ["node", "-v"]
