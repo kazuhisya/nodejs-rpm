@@ -1,12 +1,19 @@
 %define   _base node
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
+%define   _includedir %{_prefix}/include
+%define   _bindir %{_prefix}/bin
+%define   _libdir %{_prefix}/lib
 
-%global tapsetroot /usr/share/systemtap
+%if "%{_dist_ver}" == ".el5"
+%define   _datarootdir%{_datadir}
+%endif
+
+%global tapsetroot %{_prefix}/share/systemtap
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
 Version:       5.0.0
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -88,10 +95,10 @@ export PYTHON=python2.7
 
 %define _node_arch %{nil}
 %ifarch x86_64
-  %define _node_arch x64
+%define _node_arch x64
 %endif
 %ifarch i386 i686
-  %define _node_arch x86
+%define _node_arch x86
 %endif
 if [ -z %{_node_arch} ];then
   echo "bad arch"
@@ -107,28 +114,28 @@ make binary %{?_smp_mflags}
 
 pushd $RPM_SOURCE_DIR
 mv $RPM_BUILD_DIR/%{_base}-v%{version}/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz .
-rm  -rf %{_base}-v%{version}
+rm -rf %{_base}-v%{version}
 tar zxvf %{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 popd
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir  -p $RPM_BUILD_ROOT/usr
-cp -Rp $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}/* $RPM_BUILD_ROOT/usr/
-mkdir -p $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
+mkdir  -p $RPM_BUILD_ROOT%{_prefix}
+cp -Rp $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}/* $RPM_BUILD_ROOT%{_prefix}/
+mkdir -p $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
 
 for file in CHANGELOG.md LICENSE README.md ; do
-    mv $RPM_BUILD_ROOT/usr/$file $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
+    mv $RPM_BUILD_ROOT%{_prefix}/$file $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
 done
-mv $RPM_BUILD_ROOT/usr/share/doc/node/* $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
-rm -rf $RPM_BUILD_ROOT/usr/share/doc/node
-mkdir -p $RPM_BUILD_ROOT/usr/share/%{_base}js
-mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT/usr/share/%{_base}js/
+mv $RPM_BUILD_ROOT%{_defaultdocdir}/node/* $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
+rm -rf $RPM_BUILD_ROOT%{_defaultdocdir}/node
+mkdir -p $RPM_BUILD_ROOT%{_datarootdir}/%{_base}js
+mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT%{_datarootdir}/%{_base}js/
 
 # prefix all manpages with "npm-"
-pushd $RPM_BUILD_ROOT/usr/lib/node_modules/npm/man/
+pushd $RPM_BUILD_ROOT%{_libdir}/node_modules/npm/man/
 for dir in *; do
-    mkdir -p $RPM_BUILD_ROOT/usr/share/man/$dir
+    mkdir -p $RPM_BUILD_ROOT%{_mandir}/$dir
     pushd $dir
     for page in *; do
         if [[ $page != npm* ]]; then
@@ -136,7 +143,7 @@ for dir in *; do
     fi
     done
     popd
-    cp $dir/* $RPM_BUILD_ROOT/usr/share/man/$dir
+    cp $dir/* $RPM_BUILD_ROOT%{_mandir}/$dir
 done
 popd
 
@@ -146,38 +153,40 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 
 %files
 %defattr(-,root,root,-)
-%{_prefix}/share/doc/%{_base}-v%{version}
+%{_defaultdocdir}/%{_base}-v%{version}
 %defattr(755,root,root)
 %{_bindir}/node
 
 %doc
-/usr/share/man/man1/node.1.gz
+%{_mandir}/man1/node.1.gz
 
 %files binary
 %defattr(-,root,root,-)
-%{_prefix}/share/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
+%{_datarootdir}/%{_base}js/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz
 
 %files npm
 %defattr(-,root,root,-)
-%{_prefix}/lib/node_modules/npm
+%{_libdir}/node_modules/npm
 %{_bindir}/npm
 
 %doc
-/usr/share/man/man1/npm*
-/usr/share/man/man3
-/usr/share/man/man5
-/usr/share/man/man7
+%{_mandir}/man1/npm*
+%{_mandir}/man3
+%{_mandir}/man5
+%{_mandir}/man7
 
 %files devel
 %{_includedir}/node/
 %{tapsetroot}
 
 %changelog
+* Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.0.0-2
+- Cleaning up hardcoded paths and added path macros.
 * Fri Oct 30 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.0.0-1
 - Updated to node.js version 5.0.0
 * Tue Oct 20 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-2
 - Fix compilation on el5 (icu)
-* Tue Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
+* Wed Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
 - Updated url to use HTTPS
 * Wed Oct 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-1
 - Updated to node.js version 4.2.1
@@ -307,7 +316,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 * Tue Feb 12 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.19
 - Make formatting more consistent by @adambrod
-- Cleanup of the %files section, removes warning by @steevel
+- Cleanup of the files section, removes warning by @steevel
 * Sun Jan 20 2013 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.8.18
 * Sun Jan 13 2013 Kazuhisa Hara <kazuhisya@gmail.com>
