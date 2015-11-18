@@ -9,7 +9,7 @@ If you want to build in el7, use [Dockerfile](https://github.com/kazuhisya/nodej
 # Example
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
 $ cd nodejs-rpm
-$ docker build -t el7-nodejs:v5.0.0 .
+$ docker build -t el7-nodejs:XXXX .
 ```
 
 ## el6
@@ -19,8 +19,8 @@ If you want to build in el6, use [Dockerfile-el6](https://github.com/kazuhisya/n
 ```bash
 # Example
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
-$ cd nodejs-rpm/docker
-$ docker build -t el6-nodejs:v5.0.0 -f Dockerfile-el6 .
+$ cd nodejs-rpm
+$ docker build -t el6-nodejs:XXXX -f docker/Dockerfile-el6 .
 ```
 
 ## el5
@@ -30,6 +30,6 @@ If you want to build in el5, use [Dockerfile-el5](https://github.com/kazuhisya/n
 ```bash
 # Example
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
-$ cd nodejs-rpm/docker
-$ docker build -t el5-nodejs:v5.0.0 -f Dockerfile-el5 .
+$ cd nodejs-rpm
+$ docker build -t el5-nodejs:XXXX -f docker/Dockerfile-el5 .
 ```
