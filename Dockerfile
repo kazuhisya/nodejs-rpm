@@ -2,12 +2,14 @@ FROM centos:7
 MAINTAINER Kazuhisa Hara <kazuhisya@gmail.com>
 
 RUN yum install -y yum-utils rpmdevtools make git
-RUN git clone --depth=1 https://github.com/kazuhisya/nodejs-rpm.git
-
+COPY / /nodejs-rpm
 WORKDIR /nodejs-rpm
+
 RUN yum-builddep -y ./nodejs.spec
 RUN make rpm
 RUN yum install -y \
         --nogpgcheck \
-        ./dist/RPMS/x86_64/nodejs-*.rpm
+        ./dist/RPMS/x86_64/nodejs-[^d.+].* \
+        ./dist/RPMS/x86_64/nodejs-npm-[^d.+].* \
+        ./dist/RPMS/x86_64/nodejs-devel-[^d.+].*
 CMD ["node", "-v"]
