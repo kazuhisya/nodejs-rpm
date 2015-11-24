@@ -17,6 +17,7 @@ ifeq "$(PYVERSION_270)" "1"
 		--define "_topdir $(PWD)/dist" \
 		--define "buildroot $(PWD)/dist/install" \
 		--clean \
+		--quiet \
 		$(NAME).spec
 else
 	@echo "Python too old..."
