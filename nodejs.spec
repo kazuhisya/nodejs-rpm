@@ -5,13 +5,13 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       0.12.7
+Version:       4.2.2
 Release:       1%{?dist}.gd
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
 License:       MIT License
-URL:           http://nodejs.org
+URL:           https://nodejs.org
 Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Prefix:        /usr
@@ -30,8 +30,10 @@ BuildRequires: python
 # require EPEL
 BuildRequires: python27
 %endif
+
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
+Patch2: node-js.centos5.icu.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -72,15 +74,18 @@ This allows Node.js to get excellent performance based on the architectures of m
 %prep
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
+
 %if "%{_dist_ver}" == ".el5"
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 %endif
 
 %build
 %if "%{_dist_ver}" == ".el5"
 export PYTHON=python2.7
 %endif
+
 %define _node_arch %{nil}
 %ifarch x86_64
   %define _node_arch x64
@@ -112,9 +117,11 @@ mkdir  -p $RPM_BUILD_ROOT/usr
 cp -Rp $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}/* $RPM_BUILD_ROOT/usr/
 mkdir -p $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
 
-for file in ChangeLog LICENSE README.md ; do
+for file in CHANGELOG.md LICENSE README.md ; do
     mv $RPM_BUILD_ROOT/usr/$file $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
 done
+mv $RPM_BUILD_ROOT/usr/share/doc/node/* $RPM_BUILD_ROOT/usr/share/doc/%{_base}-v%{version}/
+rm -rf $RPM_BUILD_ROOT/usr/share/doc/node
 mkdir -p $RPM_BUILD_ROOT/usr/share/%{_base}js
 mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT/usr/share/%{_base}js/
 
@@ -166,6 +173,27 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Fri Nov  6 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.2-1
+- Updated to node.js version 4.2.2
+* Tue Oct 20 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-2
+- Fix compilation on el5 (icu)
+* Tue Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
+- Updated url to use HTTPS
+* Wed Oct 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-1
+- Updated to node.js version 4.2.1
+* Tue Oct 13 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.0-1
+- Updated to node.js version 4.2.0
+* Tue Oct  6 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.2-1
+- Updated to node.js version 4.1.2
+* Thu Sep 24 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.1-1
+- SCL is no longer needed in BuildRequires, move to Makefile.
+- Updated to node.js version 4.1.1
+* Fri Sep 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.0-2
+- Fixed el6 build env preferences #43
+* Thu Sep 17 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.0-1
+- Updated to node.js version 4.1.0
+* Mon Sep 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.0.0-1
+- Updated to node.js version 4.0.0
 * Thu Jul  9 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.12.7
 * Mon Jul  6 2015 Kazuhisa Hara <kazuhisya@gmail.com>
