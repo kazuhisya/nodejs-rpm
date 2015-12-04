@@ -46,6 +46,8 @@
 
 ## Docker (el7, el6, el5)
 
+Docker environment for building nodejs rpm.
+
 - See also: [docker/README.md](https://github.com/kazuhisya/nodejs-rpm/blob/master/docker/README.md)
 - You can also try this:  [Docker Hub kazuhisya/nodejs-rpm](https://hub.docker.com/r/kazuhisya/nodejs-rpm/) (el7 only)
 
