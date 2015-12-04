@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Kazuhisa Hara <kazuhisya@gmail.com>
 
-RUN yum install -y yum-utils rpmdevtools make git
+RUN yum install -y yum-utils rpmdevtools make
 COPY / /nodejs-rpm
 WORKDIR /nodejs-rpm
 
