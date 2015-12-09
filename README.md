@@ -1,6 +1,6 @@
 #  node.js RPM spec
 
-[![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm)
+[![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master)
 
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
 - node.js source   : https://nodejs.org/dist/
