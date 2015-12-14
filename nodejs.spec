@@ -1,5 +1,6 @@
 %define   _base node
 %define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
+%define   _dist_name %(cat /etc/redhat-release | cut -d " " -f 1)
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
@@ -13,7 +14,7 @@
 
 Name:          %{_base}js
 Version:       4.2.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -33,6 +34,11 @@ BuildRequires: zlib-devel
 BuildRequires: gzip
 BuildRequires: python
 
+%if "%{_dist_ver}" == ".el7" || "%{_dist_name}" == "Fedora"
+BuildRequires: libicu-devel
+Requires: libicu
+%endif
+
 %if "%{_dist_ver}" == ".el5"
 # require EPEL
 BuildRequires: python27
@@ -41,6 +47,7 @@ BuildRequires: python27
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
 Patch2: node-js.centos5.icu.patch
+Patch3: node-js.system-icu.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -86,6 +93,10 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%endif
+
+%if "%{_dist_ver}" == ".el7" || "%{_dist_name}" == "Fedora"
+%patch3 -p1
 %endif
 
 %build
@@ -180,6 +191,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Mon Dec 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.3-2
+- Building with a pre-installed ICU (system-icu) #52
 * Fri Dec  4 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.3-1
 - Updated to node.js version 4.2.3
 * Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.2-2
