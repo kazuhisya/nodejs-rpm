@@ -4,7 +4,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t kazuhisya/nodejs-rpm .
+    - docker build -t kazuhisya/nodejs-rpm f docker/Dockerfile-fc23 .
 
 test:
   override:
@@ -12,3 +12,4 @@ test:
     - docker run -ti kazuhisya/nodejs-rpm node -v
   post:
     - docker cp $(docker ps -lq):/nodejs-rpm/dist $CIRCLE_ARTIFACTS
+    - docker run -e COPR_LOGIN=$COPR_LOGIN -e COPR_USERNAME=$COPR_USERNAME -e COPR_TOKEN=$COPR_TOKEN --entrypoint "/nodejs-rpm/copr-deploy.sh" kazuhisya/nodejs-rpm
