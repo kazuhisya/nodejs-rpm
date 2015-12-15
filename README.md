@@ -1,10 +1,32 @@
 #  node.js RPM spec
 
-[![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master)
+Master: [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master)
+
+LTS: [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS)
+
 
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
 - node.js source   : https://nodejs.org/dist/
 
+# Compiled Package
+
+- You can find prebuilt rpm binary from here(el7 and fc23)
+    - Stable Release: [FedoraCopr khara/nodejs Copr](https://copr.fedoraproject.org/coprs/khara/nodejs/)
+    - LTS Release: [FedoraCopr khara/nodejs-lts Copr](https://copr.fedoraproject.org/coprs/khara/nodejs-lts/)
+
+el7:
+
+```bash
+$ sudo curl -sL -o /etc/yum.repos.d/khara-nodejs.repo https://copr.fedoraproject.org/coprs/khara/nodejs/repo/epel-7/khara-nodejs-epel-7.repo
+$ sudo yum install -y nodejs nodejs-npm
+```
+
+fc23:
+
+```bash
+$ sudo dnf copr enable khara/nodejs
+$ sudo dnf install -y nodejs nodejs-npm
+```
 
 # Building the RPM
 
@@ -13,10 +35,9 @@
 ### Tested
 
 - RHEL/CentOS 7 x86_64
+- Fedora23 x86_64
 
 ### Probably it works
-
-- Fedora20 x86_64 or later (maybe)
 
 - RHEL/CentOS/SL/OL 6 x86_64
     - when you try to build on el6, can use `devtoolset-3` and `SCL` repository
@@ -47,6 +68,7 @@
 ## Docker (el7, el6, el5)
 
 Docker environment for building nodejs rpm.
+It will help to build and debug.
 
 - See also: [docker/README.md](https://github.com/kazuhisya/nodejs-rpm/blob/master/docker/README.md)
 - You can also try this:  [Docker Hub kazuhisya/nodejs-rpm](https://hub.docker.com/r/kazuhisya/nodejs-rpm/) (el7 only)
