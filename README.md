@@ -41,12 +41,8 @@ $ sudo dnf install -y nodejs nodejs-npm
 
 - RHEL/CentOS/SL/OL 6 x86_64
     - when you try to build on el6, can use `devtoolset-3` and `SCL` repository
-        - Developer Toolset 3
-            - RHEL6.x: [Red Hat Developer Toolset 3](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/3/)
-            - CentOS6.x: [Devtoolset-3](https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/)
-        - Software Collections
-            - RHEL6.x: [Red Hat Software Collections](https://access.redhat.com/documentation/en-US/Red_Hat_Software_Collections/index.html)
-            - CentOS6.x: install `centos-release-SCL` package
+        - RHEL6.x: [Red Hat Developer Toolset 3](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/3/) and [Red Hat Software Collections](https://access.redhat.com/documentation/en-US/Red_Hat_Software_Collections/index.html)
+        - CentOS6.x: install `centos-release-scl-rh` package.
     - `devtoolset-3-gcc-c++`, `devtoolset-3-binutils`, `python27`
 
 - RHEL/CentOS/SL/OL 5 x86_64
