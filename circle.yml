@@ -1,0 +1,19 @@
+machine:
+  pre:
+    - echo 'DOCKER_OPTS="-s btrfs -e lxc -D --userland-proxy=false"' | sudo tee -a /etc/default/docker
+    - sudo curl -L -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.0-circleci-cp-workaround'
+    - sudo chmod 0755 /usr/bin/docker
+  services:
+    - docker
+dependencies:
+  override:
+    - docker info
+    - docker build -t kazuhisya/nodejs-rpm -f docker/Dockerfile-fc23 .
+
+test:
+  override:
+    - docker run -ti kazuhisya/nodejs-rpm /bin/true
+    - docker run -ti kazuhisya/nodejs-rpm node -v
+  post:
+    - docker cp $(docker ps -lq):/nodejs-rpm/dist $CIRCLE_ARTIFACTS
+    - docker run -e COPR_LOGIN=$COPR_LOGIN -e COPR_USERNAME=$COPR_USERNAME -e COPR_TOKEN=$COPR_TOKEN --entrypoint "/nodejs-rpm/copr-deploy.sh" kazuhisya/nodejs-rpm
