@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       5.9.0
+Version:       5.9.1
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -190,6 +190,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Fri Mar 25 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.9.1-1
+- Updated to node.js version 5.9.1
 * Fri Mar 18 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.9.0-1
 - Updated to node.js version 5.9.0
 * Thu Mar 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.8.0-1
