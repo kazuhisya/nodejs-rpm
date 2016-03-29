@@ -15,6 +15,7 @@
 Name:          %{_base}js
 Version:       5.9.1
 Release:       1%{?dist}
+Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
