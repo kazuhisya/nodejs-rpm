@@ -4,6 +4,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if "%{_dist_ver}" == ".el5"
 %define   _datarootdir%{_datadir}
@@ -14,7 +15,7 @@
 
 Name:          %{_base}js
 Version:       5.9.1
-Release:       1%{?dist}
+Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
