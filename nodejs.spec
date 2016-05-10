@@ -1,11 +1,9 @@
 %define   _base node
-%define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
-%define   _dist_name %(cat /etc/redhat-release | cut -d " " -f 1)
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
 
-%if "%{_dist_ver}" == ".el5"
+%if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
 %endif
 
@@ -34,15 +32,11 @@ BuildRequires: zlib-devel
 BuildRequires: gzip
 BuildRequires: python
 
-%if "%{_dist_ver}" == ".el7" || "%{_dist_name}" == "Fedora"
-BuildRequires: libicu-devel
-Requires: libicu
-%endif
-
-%if "%{_dist_ver}" == ".el5"
-# require EPEL
-BuildRequires: python27
-%endif
+%{?el7:Requires: libicu}
+%{?el7:BuildRequires: libicu-devel}
+%{?fedora:Requires: libicu}
+%{?fedora:BuildRequires: libicu-devel}
+%{?el5:BuildRequires: python27}
 
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
@@ -89,18 +83,18 @@ This allows Node.js to get excellent performance based on the architectures of m
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 
-%if "%{_dist_ver}" == ".el5"
+%if 0%{?rhel} == 5
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %endif
 
-%if "%{_dist_ver}" == ".el7" || "%{_dist_name}" == "Fedora"
+%if 0%{?rhel} == 7 || 0%{?fedora}
 %patch3 -p1
 %endif
 
 %build
-%if "%{_dist_ver}" == ".el5"
+%if 0%{?rhel} == 5
 export PYTHON=python2.7
 %endif
 
