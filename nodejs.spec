@@ -12,7 +12,7 @@
 
 Name:          %{_base}js
 Version:       4.4.4
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -185,6 +185,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Tue May 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-2
+- dist tag is get in the way in accordance with the guidelines. #54
 * Fri May  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-1
 - Updated to node.js version 4.4.4
 * Thu Apr 14 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.3-1
