@@ -111,7 +111,7 @@ el5 : with Devtoolset and python27
 
 ```bash
 $ sudo yum install -y epel-release ius-release
-$ sudo yum install -y yum-utils rpmdevtools redhat-rpm-config tar make openssl-devel libstdc++-devel zlib-devel gzip 
+$ sudo yum install -y yum-utils rpmdevtools buildsys-macros redhat-rpm-config tar make openssl-devel libstdc++-devel zlib-devel gzip 
 $ sudo yum install -y devtoolset-2-gcc-c++ devtoolset-2-binutils python27
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
 $ cd nodejs-rpm
