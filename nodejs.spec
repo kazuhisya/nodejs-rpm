@@ -11,8 +11,8 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.4.4
-Release:       2%{?dist}
+Version:       4.4.5
+Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -185,6 +185,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Wed May 25 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.5-1
+- Updated to node.js version 4.4.5
 * Tue May 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-2
 - dist tag is get in the way in accordance with the guidelines. #54
 * Fri May  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-1
