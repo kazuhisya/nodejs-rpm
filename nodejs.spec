@@ -1,11 +1,9 @@
 %define   _base node
-%define   _dist_ver %(sh /usr/lib/rpm/redhat/dist.sh)
-%define   _dist_name %(cat /etc/redhat-release | cut -d " " -f 1)
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
 
-%if "%{_dist_ver}" == ".el5"
+%if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
 %endif
 
@@ -13,8 +11,8 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.4.4
-Release:       1%{?dist}.gd
+Version:       4.4.7
+Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -34,15 +32,11 @@ BuildRequires: zlib-devel
 BuildRequires: gzip
 BuildRequires: python
 
-%if "%{_dist_ver}" == ".el7" || "%{_dist_name}" == "Fedora"
-BuildRequires: libicu-devel
-Requires: libicu
-%endif
-
-%if "%{_dist_ver}" == ".el5"
-# require EPEL
-BuildRequires: python27
-%endif
+%{?el7:Requires: libicu}
+%{?el7:BuildRequires: libicu-devel}
+%{?fedora:Requires: libicu}
+%{?fedora:BuildRequires: libicu-devel}
+%{?el5:BuildRequires: python27}
 
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
@@ -89,18 +83,18 @@ This allows Node.js to get excellent performance based on the architectures of m
 rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %setup -q -n %{_base}-v%{version}
 
-%if "%{_dist_ver}" == ".el5"
+%if 0%{?rhel} == 5
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %endif
 
-%if "%{_dist_ver}" == ".el7" || "%{_dist_name}" == "Fedora"
+%if 0%{?rhel} == 7 || 0%{?fedora}
 %patch3 -p1
 %endif
 
 %build
-%if "%{_dist_ver}" == ".el5"
+%if 0%{?rhel} == 5
 export PYTHON=python2.7
 %endif
 
@@ -191,6 +185,14 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Wed Jun 29 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.7-1
+- Updated to node.js version 4.4.7
+* Fri Jun 24 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.6-1
+- Updated to node.js version 4.4.6
+* Wed May 25 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.5-1
+- Updated to node.js version 4.4.5
+* Tue May 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-2
+- dist tag is get in the way in accordance with the guidelines. #54
 * Fri May  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-1
 - Updated to node.js version 4.4.4
 * Thu Apr 14 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.3-1
