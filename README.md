@@ -10,7 +10,7 @@ LTS: [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS.svg?sty
 
 # Compiled Package
 
-- You can find prebuilt rpm binary from here(el7 and fc23)
+- You can find prebuilt rpm binary from here(el7 and fc23, 24)
     - Stable Release: [FedoraCopr khara/nodejs Copr](https://copr.fedoraproject.org/coprs/khara/nodejs/)
     - LTS Release: [FedoraCopr khara/nodejs-lts Copr](https://copr.fedoraproject.org/coprs/khara/nodejs-lts/)
 
@@ -21,7 +21,7 @@ $ sudo curl -sL -o /etc/yum.repos.d/khara-nodejs.repo https://copr.fedoraproject
 $ sudo yum install -y nodejs nodejs-npm
 ```
 
-fc23:
+fc23, 24:
 
 ```bash
 $ sudo dnf copr enable khara/nodejs
@@ -35,7 +35,7 @@ $ sudo dnf install -y nodejs nodejs-npm
 ### Tested
 
 - RHEL/CentOS 7 x86_64
-- Fedora23 x86_64
+- Fedora23, 24 x86_64
 
 ### Probably it works
 
