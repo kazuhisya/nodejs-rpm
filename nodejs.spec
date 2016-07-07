@@ -11,7 +11,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       6.2.2
+Version:       6.3.0
 Release:       1%{?dist}
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
@@ -42,6 +42,7 @@ Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
 Patch2: node-js.centos5.icu.patch
 Patch3: node-js.system-icu.patch
+Patch4: node-js.v8_inspector.gyp.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -87,6 +88,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch4 -p1
 %endif
 
 %if 0%{?rhel} == 7 || 0%{?fedora}
@@ -184,6 +186,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Thu Jul  7 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-1
+- updated to node.js version 6.3.0
 * Mon Jun 20 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.2-1
 - updated to node.js version 6.2.2
 * Fri Jun  3 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.1-1
