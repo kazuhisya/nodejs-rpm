@@ -18,7 +18,7 @@ EOF
 
 version=`awk '$1=="Version:" {print $2}' ${spec_file}`
 release=`awk '$1=="Release:" {print $2}' ${spec_file} |tr -d "%{?dist}"`
-srpm_file=./dist/SRPMS/${project_name}-${version}-${release}.fc23.src.rpm
+srpm_file=./dist/SRPMS/${project_name}-${version}-${release}.fc24.src.rpm
 copr-cli build --nowait ${project_name}-lts ${srpm_file}
 
 
