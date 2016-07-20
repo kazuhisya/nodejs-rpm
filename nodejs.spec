@@ -163,7 +163,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_bindir}/node
 
 %doc
-%{_mandir}/man1/node.1.gz
+%{_mandir}/man1/node*
 
 %files binary
 %defattr(-,root,root,-)
