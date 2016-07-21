@@ -2,7 +2,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
-%define   _build_number %(echo ${BUILD_NUMBER:-1})
+%define   _build_number %(echo ${BUILD_NUMBER:-2})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
