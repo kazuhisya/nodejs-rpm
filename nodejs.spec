@@ -2,6 +2,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -12,7 +13,8 @@
 
 Name:          %{_base}js
 Version:       6.3.0
-Release:       1%{?dist}
+Release:       %{_build_number}%{?dist}
+Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -165,7 +167,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_bindir}/node
 
 %doc
-%{_mandir}/man1/node.1.gz
+%{_mandir}/man1/node*
 
 %files binary
 %defattr(-,root,root,-)
