@@ -188,6 +188,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Thu Jul 21 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-2
+- Minor fixes to make it fully compatible with CentOS 7 #57
 * Thu Jul  7 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-1
 - updated to node.js version 6.3.0
 * Mon Jun 20 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.2-1
