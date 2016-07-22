@@ -2,7 +2,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
-%define   _build_number %(echo ${BUILD_NUMBER:-2})
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -12,7 +12,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       6.3.0
+Version:       6.3.1
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -188,6 +188,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Fri Jul 22 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.1-1
+- updated to node.js version 6.3.1
 * Thu Jul 21 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-2
 - Minor fixes to make it fully compatible with CentOS 7 #57
 * Thu Jul  7 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-1
