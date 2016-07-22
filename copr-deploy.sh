@@ -17,7 +17,7 @@ copr_url = https://copr.fedoraproject.org
 EOF
 
 version=`awk '$1=="Version:" {print $2}' ${spec_file}`
-release=`awk '$1=="Release:" {print $2}' ${spec_file} |tr -d "%{?dist}"`
+release=`awk '/BUILD_NUMBER/ {print $4}' nodejs.spec | tr -d '${BUILD_NUMBER:-' | tr -d '})'`
 srpm_file=./dist/SRPMS/${project_name}-${version}-${release}.fc24.src.rpm
 copr-cli build --nowait ${project_name}-lts ${srpm_file}
 
