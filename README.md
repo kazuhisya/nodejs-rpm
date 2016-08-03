@@ -1,12 +1,15 @@
 #  node.js RPM spec
 
-Master: [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master)
-
-LTS: [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS)
-
+| Blanch    | Status     |
+|:---------:|:----------:|
+| master(v6)| [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) |
+| LTS(v4)   | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS)|
+| stable-v5 | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/stable-v5.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/stable-v5)|
 
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
 - node.js source   : https://nodejs.org/dist/
+
+
 
 # Compiled Package
 
