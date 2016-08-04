@@ -97,10 +97,6 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch3 -p1
 %endif
 
-%if 0%{?rhel} == 7 || 0%{?fedora}
-%patch3 -p1
-%endif
-
 %build
 %if 0%{?rhel} == 5
 export PYTHON=python2.7
