@@ -1,6 +1,6 @@
---- node-v4.2.1.orig/deps/v8/tools/gyp/v8.gyp	2015-10-19 18:27:57.000000000 +0900
-+++ node-v4.2.1/deps/v8/tools/gyp/v8.gyp	2015-10-19 19:21:45.000000000 +0900
-@@ -1696,14 +1696,14 @@
+--- node-v6.0.0.orig/deps/v8/tools/gyp/v8.gyp	2016-04-27 06:40:44.625869601 +0000
++++ node-v6.0.0/deps/v8/tools/gyp/v8.gyp	2016-04-27 06:41:56.464866952 +0000
+@@ -1920,14 +1920,14 @@
                        '<(PRODUCT_DIR)/natives_blob_host.bin',
                      ],
                      'action': [
@@ -17,7 +17,7 @@
                      ],
                    }],
                  ],
-@@ -1712,7 +1712,7 @@
+@@ -1936,7 +1936,7 @@
                    '<(PRODUCT_DIR)/natives_blob.bin',
                  ],
                  'action': [
@@ -26,34 +26,79 @@
                  ],
                }],
              ],
-@@ -1812,7 +1812,7 @@
-             '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
+@@ -2032,7 +2032,7 @@
            ],
+           'outputs': ['<(SHARED_INTERMEDIATE_DIR)/libraries.cc'],
            'action': [
 -            'python',
 +            'python2.7',
              '../../tools/js2c.py',
              '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
              'CORE',
-@@ -1838,7 +1838,7 @@
-             '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
+@@ -2049,7 +2049,7 @@
            ],
+           'outputs': ['<@(libraries_bin_file)'],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/libraries.cc',
+             'CORE',
+@@ -2067,7 +2067,7 @@
+           ],
+           'outputs': ['<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc'],
            'action': [
 -            'python',
 +            'python2.7',
              '../../tools/js2c.py',
              '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
              'EXPERIMENTAL',
-@@ -1863,7 +1863,7 @@
-             '<(SHARED_INTERMEDIATE_DIR)/extras-libraries.cc',
+@@ -2082,7 +2082,7 @@
            ],
+           'outputs': ['<@(libraries_experimental_bin_file)'],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/experimental-libraries.cc',
+             'EXPERIMENTAL',
+@@ -2099,7 +2099,7 @@
+           ],
+           'outputs': ['<(SHARED_INTERMEDIATE_DIR)/extras-libraries.cc'],
            'action': [
 -            'python',
 +            'python2.7',
              '../../tools/js2c.py',
              '<(SHARED_INTERMEDIATE_DIR)/extras-libraries.cc',
              'EXTRAS',
-@@ -1900,7 +1900,7 @@
+@@ -2114,7 +2114,7 @@
+           ],
+           'outputs': ['<@(libraries_extras_bin_file)'],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/extras-libraries.cc',
+             'EXTRAS',
+@@ -2133,7 +2133,7 @@
+             '<(SHARED_INTERMEDIATE_DIR)/experimental-extras-libraries.cc',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/experimental-extras-libraries.cc',
+             'EXPERIMENTAL_EXTRAS',
+@@ -2148,7 +2148,7 @@
+           ],
+           'outputs': ['<@(libraries_experimental_extras_bin_file)'],
+           'action': [
+-            'python',
++            'python2.7',
+             '../../tools/js2c.py',
+             '<(SHARED_INTERMEDIATE_DIR)/experimental-extras-libraries.cc',
+             'EXPERIMENTAL_EXTRAS',
+@@ -2179,7 +2179,7 @@
                '<(SHARED_INTERMEDIATE_DIR)/debug-support.cc',
              ],
              'action': [

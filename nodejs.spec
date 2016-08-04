@@ -2,6 +2,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -11,8 +12,9 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.4.7
-Release:       1%{?dist}.gd
+Version:       6.3.1
+Release:       %{_build_number}%{?dist}
+Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
 Packager:      Kazuhisa Hara <kazuhisya@gmail.com>
 Group:         Development/Libraries
@@ -42,6 +44,7 @@ Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
 Patch2: node-js.centos5.icu.patch
 Patch3: node-js.system-icu.patch
+Patch4: node-js.v8_inspector.gyp.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -87,6 +90,11 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch4 -p1
+%endif
+
+%if 0%{?rhel} == 7 || 0%{?fedora}
+%patch3 -p1
 %endif
 
 %if 0%{?rhel} == 7 || 0%{?fedora}
@@ -163,7 +171,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{_bindir}/node
 
 %doc
-%{_mandir}/man1/node.1.gz
+%{_mandir}/man1/node*
 
 %files binary
 %defattr(-,root,root,-)
@@ -176,7 +184,6 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 
 %doc
 %{_mandir}/man1/npm*
-%{_mandir}/man3
 %{_mandir}/man5
 %{_mandir}/man7
 
@@ -185,44 +192,62 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
-* Wed Jun 29 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.7-1
-- Updated to node.js version 4.4.7
-* Fri Jun 24 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.6-1
-- Updated to node.js version 4.4.6
-* Wed May 25 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.5-1
-- Updated to node.js version 4.4.5
-* Tue May 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-2
+* Fri Jul 22 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.1-1
+- updated to node.js version 6.3.1
+* Thu Jul 21 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-2
+- Minor fixes to make it fully compatible with CentOS 7 #57
+* Thu Jul  7 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-1
+- updated to node.js version 6.3.0
+* Mon Jun 20 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.2-1
+- updated to node.js version 6.2.2
+* Fri Jun  3 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.1-1
+- updated to node.js version 6.2.1
+* Wed May 18 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.2.0-1
+- Updated to node.js version 6.2.0
+* Tue May 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.1.0-2
 - dist tag is get in the way in accordance with the guidelines. #54
-* Fri May  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.4-1
-- Updated to node.js version 4.4.4
-* Thu Apr 14 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.3-1
-- Updated to node.js version 4.4.3
-* Fri Apr  1 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.2-1
-- Updated to node.js version 4.4.2
-* Wed Mar 23 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.1-1
-- Updated to node.js version 4.4.1
-* Thu Mar 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.0-1
-- Updated to node.js version 4.4.0
-* Thu Mar  3 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.3.2-1
-- Updated to node.js version 4.3.2
-* Thu Feb 18 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.3.1-1
-- Updated to node.js version 4.3.1
-* Wed Feb 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.3.0-1
-- Updated to node.js version 4.3.0
-* Mon Feb  1 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.6-1
-- Updated to node.js version 4.2.6
-* Thu Jan 21 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.5-1
-- Updated to node.js version 4.2.5
-* Thu Dec 24 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.4-1
-- Updated to node.js version 4.2.4
-* Mon Dec 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.3-2
+* Fri May  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.1.0-1
+- Updated to node.js version 6.1.0
+* Wed Apr 27 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.0.0-1
+- Updated to node.js version 6.0.0
+* Fri Apr 22 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.11.0-1
+- Updated to node.js version 5.11.0
+* Wed Apr  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.10.1-1
+- Updated to node.js version 5.10.1
+* Fri Apr  1 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.10.0-1
+- Updated to node.js version 5.10.0
+* Fri Mar 25 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.9.1-1
+- Updated to node.js version 5.9.1
+* Fri Mar 18 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.9.0-1
+- Updated to node.js version 5.9.0
+* Thu Mar 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.8.0-1
+- Updated to node.js version 5.8.0
+* Thu Mar  3 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.7.1-1
+- Updated to node.js version 5.7.1
+* Tue Feb 23 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.7.0-1
+- Updated to node.js version 5.7.0
+* Wed Feb 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.6.0-1
+- Updated to node.js version 5.6.0
+* Mon Feb  1 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.5.0-1
+- Updated to node.js version 5.5.0
+* Wed Jan 13 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.4.1-1
+- Updated to node.js version 5.4.1
+* Thu Jan  7 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.4.0-1
+- Updated to node.js version 5.4.0
+* Thu Dec 17 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.3.0-1
+- Updated to node.js version 5.3.0
+* Mon Dec 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.2.0-2
 - Building with a pre-installed ICU (system-icu) #52
-* Fri Dec  4 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.3-1
-- Updated to node.js version 4.2.3
-* Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.2-2
+* Wed Dec  9 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.2.0-1
+- Updated to node.js version 5.2.0
+* Fri Dec  4 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.1.1-1
+- Updated to node.js version 5.1.1
+* Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.1.0-1
+- Updated to node.js version 5.1.0
+* Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.0.0-2
 - Cleaning up hardcoded paths and added path macros.
-* Fri Nov  6 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.2-1
-- Updated to node.js version 4.2.2
+* Fri Oct 30 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.0.0-1
+- Updated to node.js version 5.0.0
 * Tue Oct 20 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-2
 - Fix compilation on el5 (icu)
 * Wed Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
