@@ -1,0 +1,48 @@
+diff -aurN node-v6.3.0.org/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp node-v6.3.0/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp
+--- node-v6.3.0.org/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-07-07 11:58:24.022656945 +0900
++++ node-v6.3.0/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-07-07 12:06:32.795638924 +0900
+@@ -20,7 +20,7 @@
+           ],
+           'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/blink/platform/v8_inspector/InjectedScriptSource.h', ],
+           'action': [
+-            'python', 'build/xxd.py', 'InjectedScriptSource_js', 'InjectedScriptSource.js', '<@(_outputs)'
++            'python2.7', 'build/xxd.py', 'InjectedScriptSource_js', 'InjectedScriptSource.js', '<@(_outputs)'
+           ],
+         },
+       ],
+@@ -40,7 +40,7 @@
+           ],
+           'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/blink/platform/v8_inspector/DebuggerScript.h', ],
+           'action': [
+-            'python', 'build/xxd.py', 'DebuggerScript_js', 'DebuggerScript.js', '<@(_outputs)'
++            'python2.7', 'build/xxd.py', 'DebuggerScript_js', 'DebuggerScript.js', '<@(_outputs)'
+           ],
+         },
+       ],
+@@ -74,7 +74,7 @@
+           'action_name': 'generateV8InspectorProtocolBackendSources',
+           'inputs': [
+             '<@(jinja_module_files)',
+-            # The python script in action below.
++            # The python2.7 script in action below.
+             '../inspector_protocol/CodeGenerator.py',
+             # Source code templates.
+             '../inspector_protocol/TypeBuilder_h.template',
+@@ -93,7 +93,7 @@
+             '<(blink_platform_output_dir)/v8_inspector/protocol/Runtime.h',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '../inspector_protocol/CodeGenerator.py',
+             '--protocol', 'js_protocol.json',
+             '--string_type', 'String16',
+@@ -120,7 +120,7 @@
+             '<(blink_platform_output_dir)/v8_inspector/protocol.json',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '../inspector_protocol/generate-inspector-protocol-version',
+             '--o',
+             '<@(_outputs)',
