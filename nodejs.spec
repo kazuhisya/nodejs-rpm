@@ -2,7 +2,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
-%define   _build_number %(echo ${BUILD_NUMBER:-2})
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -12,7 +12,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.4.7
+Version:       4.5.0
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -187,6 +187,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Wed Aug 17 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.5.0-1
+- Updated to node.js version 4.5.0
 * Fri Jul 22 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.7-2
 - Minor fixes to make it fully compatible with CentOS 7 #57
 * Wed Jun 29 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.7-1

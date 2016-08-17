@@ -1,9 +1,9 @@
-diff -aurN node-v0.8.18.orig/configure node-v0.8.18/configure
---- node-v0.8.18.orig/configure	2012-12-28 22:44:59.000000000 +0900
-+++ node-v0.8.18/configure	2012-12-28 22:45:23.000000000 +0900
+diff -aurN node-v4.5.0.orig/configure node-v4.5.0/configure
+--- node-v4.5.0.orig/configure  2016-08-17 00:53:58.917431741 +0000
++++ node-v4.5.0/configure   2016-08-17 00:54:33.268430475 +0000
 @@ -1,4 +1,4 @@
 -#!/usr/bin/env python
 +#!/usr/bin/env python2.7
+
+ import errno
  import optparse
- import os
- import pprint
