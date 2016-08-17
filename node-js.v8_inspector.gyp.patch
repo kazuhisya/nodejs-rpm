@@ -1,6 +1,6 @@
-diff -aurN node-v6.3.0.org/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp node-v6.3.0/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp
---- node-v6.3.0.org/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-07-07 11:58:24.022656945 +0900
-+++ node-v6.3.0/deps/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-07-07 12:06:32.795638924 +0900
+diff -aurN node-v6.4.0.orig/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp node-v6.4.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp
+--- node-v6.4.0.orig/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp  2016-08-15 14:27:14.000000000 +0000
++++ node-v6.4.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp       2016-08-17 03:06:03.691139553 +0000
 @@ -20,7 +20,7 @@
            ],
            'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/blink/platform/v8_inspector/InjectedScriptSource.h', ],
@@ -28,8 +28,8 @@ diff -aurN node-v6.3.0.org/deps/v8_inspector/platform/v8_inspector/v8_inspector.
              '../inspector_protocol/CodeGenerator.py',
              # Source code templates.
              '../inspector_protocol/TypeBuilder_h.template',
-@@ -93,7 +93,7 @@
-             '<(blink_platform_output_dir)/v8_inspector/protocol/Runtime.h',
+@@ -99,7 +99,7 @@
+             '<(blink_platform_output_dir)/v8_inspector/public/protocol/Debugger.h',
            ],
            'action': [
 -            'python',
@@ -37,7 +37,7 @@ diff -aurN node-v6.3.0.org/deps/v8_inspector/platform/v8_inspector/v8_inspector.
              '../inspector_protocol/CodeGenerator.py',
              '--protocol', 'js_protocol.json',
              '--string_type', 'String16',
-@@ -120,7 +120,7 @@
+@@ -128,7 +128,7 @@
              '<(blink_platform_output_dir)/v8_inspector/protocol.json',
            ],
            'action': [
