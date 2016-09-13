@@ -2,6 +2,7 @@
 %define   _includedir %{_prefix}/include
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
+%define   _node_original_docdir /usr/share/doc/node
 %define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
@@ -23,7 +24,6 @@ URL:           https://nodejs.org
 Source0:       %{url}/dist/v%{version}/%{_base}-v%{version}.tar.gz
 BuildRoot:     %{_tmppath}/%{name}-%{version}-%{release}-tmp
 Prefix:        /usr
-BuildRequires: redhat-rpm-config
 BuildRequires: tar
 BuildRequires: gcc
 BuildRequires: gcc-c++
@@ -34,11 +34,14 @@ BuildRequires: zlib-devel
 BuildRequires: gzip
 BuildRequires: python
 
+%{?el5:BuildRequires: python27}
+%{?el5:BuildRequires: redhat-rpm-config}
 %{?el7:Requires: libicu}
 %{?el7:BuildRequires: libicu-devel}
 %{?fedora:Requires: libicu}
 %{?fedora:BuildRequires: libicu-devel}
-%{?el5:BuildRequires: python27}
+%{?suse_version:Requires: libicu}
+%{?suse_version:BuildRequires: libicu-devel}
 
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
@@ -95,6 +98,10 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch3 -p1
 %endif
 
+%if 0%{?suse_version} == 1315
+%patch3 -p1
+%endif
+
 %build
 %if 0%{?rhel} == 5
 export PYTHON=python2.7
@@ -134,8 +141,8 @@ mkdir -p $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
 for file in CHANGELOG.md LICENSE README.md ; do
     mv $RPM_BUILD_ROOT%{_prefix}/$file $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
 done
-mv $RPM_BUILD_ROOT%{_defaultdocdir}/node/* $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
-rm -rf $RPM_BUILD_ROOT%{_defaultdocdir}/node
+mv $RPM_BUILD_ROOT%{_node_original_docdir}/* $RPM_BUILD_ROOT%{_defaultdocdir}/%{_base}-v%{version}/
+rm -rf $RPM_BUILD_ROOT%{_node_original_docdir}
 mkdir -p $RPM_BUILD_ROOT%{_datarootdir}/%{_base}js
 mv $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}.tar.gz $RPM_BUILD_ROOT%{_datarootdir}/%{_base}js/
 
