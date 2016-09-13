@@ -3,7 +3,7 @@
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
 %define   _node_original_docdir /usr/share/doc/node
-%define   _build_number %(echo ${BUILD_NUMBER:-1})
+%define   _build_number %(echo ${BUILD_NUMBER:-2})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -194,6 +194,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Tue Sep 13 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.5.0-2
+- Added SUSE Support. fix #58
 * Wed Aug 17 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.5.0-1
 - Updated to node.js version 4.5.0
 * Fri Jul 22 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.4.7-2
