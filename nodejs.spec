@@ -3,7 +3,7 @@
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
 %define   _node_original_docdir /usr/share/doc/node
-%define   _build_number %(echo ${BUILD_NUMBER:-2})
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       4.5.0
+Version:       4.6.0
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -194,6 +194,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Fri Sep 30 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.6.0-1
+- Updated to node.js version 4.6.0
 * Tue Sep 13 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.5.0-2
 - Added SUSE Support. fix #58
 * Wed Aug 17 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 4.5.0-1
