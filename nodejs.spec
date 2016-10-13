@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       6.7.0
+Version:       6.8.0
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -48,6 +48,7 @@ Patch1: node-js.centos5.gyp.patch
 Patch2: node-js.centos5.icu.patch
 Patch3: node-js.system-icu.patch
 Patch4: node-js.v8_inspector.gyp.patch
+Patch5: node-js.node.gyp-python27.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -94,6 +95,7 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch1 -p1
 %patch2 -p1
 %patch4 -p1
+%patch5 -p1
 %endif
 
 %if 0%{?rhel} == 7 || 0%{?fedora}
@@ -195,25 +197,27 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
-* Fri Sep 30 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.7.0-1
+* Thu Oct 13 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.8.0-1
+- updated to node.js version 6.8.0
+* Fri Sep 30 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.7.0-1
 - updated to node.js version 6.7.0
-* Fri Sep 16 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.6.0-1
+* Fri Sep 16 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.6.0-1
 - updated to node.js version 6.6.0
 * Tue Sep 13 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.5.0-2
 - Added SUSE Support. fix #58
-* Tue Aug 30 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.5.0-1
+* Tue Aug 30 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.5.0-1
 - updated to node.js version 6.5.0
-* Wed Aug 17 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.4.0-1
+* Wed Aug 17 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.4.0-1
 - updated to node.js version 6.4.0
-* Fri Jul 22 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.1-1
+* Fri Jul 22 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.3.1-1
 - updated to node.js version 6.3.1
-* Thu Jul 21 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-2
+* Thu Jul 21 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.3.0-2
 - Minor fixes to make it fully compatible with CentOS 7 #57
-* Thu Jul  7 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.3.0-1
+* Thu Jul  7 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.3.0-1
 - updated to node.js version 6.3.0
-* Mon Jun 20 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.2-1
+* Mon Jun 20 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.2.2-1
 - updated to node.js version 6.2.2
-* Fri Jun  3 2016 kazuhisa hara <kazuhisya@gmail.com> - 6.2.1-1
+* Fri Jun  3 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.2.1-1
 - updated to node.js version 6.2.1
 * Wed May 18 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 6.2.0-1
 - Updated to node.js version 6.2.0

@@ -1,6 +1,6 @@
-diff -aurN node-v6.6.0.org/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp node-v6.6.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp
---- node-v6.6.0.org/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-09-14 17:37:12.000000000 +0000
-+++ node-v6.6.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-09-16 05:09:03.421459890 +0000
+diff -aurN node-v6.8.0.org/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp node-v6.8.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp
+--- node-v6.8.0.org/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-10-13 01:33:28.969361490 +0000
++++ node-v6.8.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-10-13 01:38:38.407350081 +0000
 @@ -71,7 +71,7 @@
                    '<(blink_platform_output_dir)/v8_inspector/public/protocol/Schema.h',
                  ],
