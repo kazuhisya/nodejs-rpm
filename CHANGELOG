@@ -1,5 +1,62 @@
 # old changelog
 
+* Fri Apr 22 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.11.0-1
+- Updated to node.js version 5.11.0
+* Wed Apr  6 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.10.1-1
+- Updated to node.js version 5.10.1
+* Fri Apr  1 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.10.0-1
+- Updated to node.js version 5.10.0
+* Fri Mar 25 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.9.1-1
+- Updated to node.js version 5.9.1
+* Fri Mar 18 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.9.0-1
+- Updated to node.js version 5.9.0
+* Thu Mar 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.8.0-1
+- Updated to node.js version 5.8.0
+* Thu Mar  3 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.7.1-1
+- Updated to node.js version 5.7.1
+* Tue Feb 23 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.7.0-1
+- Updated to node.js version 5.7.0
+* Wed Feb 10 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.6.0-1
+- Updated to node.js version 5.6.0
+* Mon Feb  1 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.5.0-1
+- Updated to node.js version 5.5.0
+* Wed Jan 13 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.4.1-1
+- Updated to node.js version 5.4.1
+* Thu Jan  7 2016 Kazuhisa Hara <kazuhisya@gmail.com> - 5.4.0-1
+- Updated to node.js version 5.4.0
+* Thu Dec 17 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.3.0-1
+- Updated to node.js version 5.3.0
+* Mon Dec 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.2.0-2
+- Building with a pre-installed ICU (system-icu) #52
+* Wed Dec  9 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.2.0-1
+- Updated to node.js version 5.2.0
+* Fri Dec  4 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.1.1-1
+- Updated to node.js version 5.1.1
+* Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.1.0-1
+- Updated to node.js version 5.1.0
+* Wed Nov 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.0.0-2
+- Cleaning up hardcoded paths and added path macros.
+* Fri Oct 30 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 5.0.0-1
+- Updated to node.js version 5.0.0
+* Tue Oct 20 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-2
+- Fix compilation on el5 (icu)
+* Wed Oct 14 2015 Blair Gillam <blair.gillam@breachintelligence.com>
+- Updated url to use HTTPS
+* Wed Oct 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.1-1
+- Updated to node.js version 4.2.1
+* Tue Oct 13 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.2.0-1
+- Updated to node.js version 4.2.0
+* Tue Oct  6 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.2-1
+- Updated to node.js version 4.1.2
+* Thu Sep 24 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.1-1
+- SCL is no longer needed in BuildRequires, move to Makefile.
+- Updated to node.js version 4.1.1
+* Fri Sep 18 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.0-2
+- Fixed el6 build env preferences #43
+* Thu Sep 17 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.1.0-1
+- Updated to node.js version 4.1.0
+* Mon Sep 14 2015 Kazuhisa Hara <kazuhisya@gmail.com> - 4.0.0-1
+- Updated to node.js version 4.0.0
 * Thu Jul  9 2015 Kazuhisa Hara <kazuhisya@gmail.com>
 - Updated to node.js version 0.12.7
 * Mon Jul  6 2015 Kazuhisa Hara <kazuhisya@gmail.com>
