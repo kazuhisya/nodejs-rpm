@@ -1,8 +1,8 @@
-diff -aurN node-v5.2.0.org/Makefile node-v5.2.0/Makefile
---- node-v5.2.0.org/Makefile	2015-12-14 06:44:39.713806143 +0000
-+++ node-v5.2.0/Makefile	2015-12-14 06:45:19.215340677 +0000
-@@ -20,9 +20,8 @@
- NODE_G_EXE = node_g$(EXEEXT)
+diff -aurN node-v4.6.2.org/Makefile node-v4.6.2/Makefile
+--- node-v4.6.2.org/Makefile	2016-11-09 03:54:01.774583282 +0000
++++ node-v4.6.2/Makefile	2016-11-09 03:56:29.802577824 +0000
+@@ -38,9 +38,8 @@
+ NPM ?= ./deps/npm/bin/npm-cli.js
  
  # Flags for packaging.
 -BUILD_DOWNLOAD_FLAGS ?= --download=all
