@@ -1,48 +1,39 @@
-diff -aurN node-v6.8.0.org/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp node-v6.8.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp
---- node-v6.8.0.org/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-10-13 01:33:28.969361490 +0000
-+++ node-v6.8.0/deps/v8_inspector/third_party/v8_inspector/platform/v8_inspector/v8_inspector.gyp	2016-10-13 01:38:38.407350081 +0000
-@@ -71,7 +71,7 @@
-                   '<(blink_platform_output_dir)/v8_inspector/public/protocol/Schema.h',
-                 ],
-                 'action': [
--                  'python',
-+                  'python2.7',
-                   '../inspector_protocol/CodeGenerator.py',
-                   '--output_base', '<(blink_platform_output_dir)',
-                   '--config', 'inspector_protocol_config.json',
-@@ -99,7 +99,7 @@
-           ],
-           'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/blink/platform/v8_inspector/InjectedScriptSource.h', ],
-           'action': [
--            'python', 'build/xxd.py', 'InjectedScriptSource_js', 'InjectedScriptSource.js', '<@(_outputs)'
-+            'python2.7', 'build/xxd.py', 'InjectedScriptSource_js', 'InjectedScriptSource.js', '<@(_outputs)'
-           ],
-         },
-       ],
-@@ -119,7 +119,7 @@
-           ],
-           'outputs': [ '<(SHARED_INTERMEDIATE_DIR)/blink/platform/v8_inspector/DebuggerScript.h', ],
-           'action': [
--            'python', 'build/xxd.py', 'DebuggerScript_js', 'DebuggerScript.js', '<@(_outputs)'
-+            'python2.7', 'build/xxd.py', 'DebuggerScript_js', 'DebuggerScript.js', '<@(_outputs)'
-           ],
-         },
-       ],
-@@ -141,7 +141,7 @@
-             '<(blink_platform_output_dir)/v8_inspector/protocol.json',
+diff -aurN node-v7.1.0.org/deps/v8_inspector/src/inspector/inspector.gyp node-v7.1.0/deps/v8_inspector/src/inspector/inspector.gyp
+--- node-v7.1.0.org/deps/v8_inspector/src/inspector/inspector.gyp	2016-11-09 01:30:48.715900110 +0000
++++ node-v7.1.0/deps/v8_inspector/src/inspector/inspector.gyp	2016-11-09 01:33:35.506893960 +0000
+@@ -26,7 +26,7 @@
+             '<(inspector_generated_injected_script)',
            ],
            'action': [
 -            'python',
 +            'python2.7',
-             '../inspector_protocol/generate-inspector-protocol-version',
-             '--o',
-             '<@(_outputs)',
-@@ -211,7 +211,7 @@
-             '<(blink_platform_output_dir)/v8_inspector/public/protocol/Schema.h',
+             'build/xxd.py',
+             'InjectedScriptSource_js',
+             'injected-script-source.js',
+@@ -50,7 +50,7 @@
+             '<(inspector_generated_debugger_script)',
            ],
            'action': [
 -            'python',
 +            'python2.7',
-             '../inspector_protocol/CodeGenerator.py',
-             '--output_base', '<(blink_platform_output_dir)',
-             '--config', 'inspector_protocol_config_stl.json',
+             'build/xxd.py',
+             'DebuggerScript_js',
+             'debugger-script.js',
+@@ -73,7 +73,7 @@
+             '<@(SHARED_INTERMEDIATE_DIR)/src/js_protocol.stamp',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '<(protocol_path)/CheckProtocolCompatibility.py',
+             '--stamp', '<@(_outputs)',
+             'js_protocol.json',
+@@ -97,7 +97,7 @@
+             '<@(inspector_generated_sources)',
+           ],
+           'action': [
+-            'python',
++            'python2.7',
+             '<(protocol_path)/CodeGenerator.py',
+             '--jinja_dir', '../../third_party',
+             '--output_base', '<(SHARED_INTERMEDIATE_DIR)/src/inspector',
