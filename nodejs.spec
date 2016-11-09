@@ -36,19 +36,12 @@ BuildRequires: python
 
 %{?el5:BuildRequires: python27}
 %{?el5:BuildRequires: redhat-rpm-config}
-%{?el7:Requires: libicu}
-%{?el7:BuildRequires: libicu-devel}
-%{?fedora:Requires: libicu}
-%{?fedora:BuildRequires: libicu-devel}
-%{?suse_version:Requires: libicu}
-%{?suse_version:BuildRequires: libicu-devel}
 
 Patch0: node-js.centos5.configure.patch
 Patch1: node-js.centos5.gyp.patch
 Patch2: node-js.centos5.icu.patch
-Patch3: node-js.system-icu.patch
-Patch4: node-js.v8_inspector.gyp.patch
-Patch5: node-js.node.gyp-python27.patch
+Patch3: node-js.v8_inspector.gyp.patch
+Patch4: node-js.node.gyp-python27.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -94,16 +87,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 %patch4 -p1
-%patch5 -p1
-%endif
-
-%if 0%{?rhel} == 7 || 0%{?fedora}
-%patch3 -p1
-%endif
-
-%if 0%{?suse_version} == 1315
-%patch3 -p1
 %endif
 
 %build

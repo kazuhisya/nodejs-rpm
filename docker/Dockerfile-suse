@@ -7,8 +7,6 @@ RUN zypper --gpg-auto-import-keys install --no-confirm --auto-agree-with-license
         gcc \
         gcc-c++ \
         gzip \
-        libicu \
-        libicu-devel \
         libstdc++-devel \
         make \
         openssl-devel \
