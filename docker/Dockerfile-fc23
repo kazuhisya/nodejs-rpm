@@ -11,6 +11,5 @@ RUN dnf install -y \
         --nogpgcheck \
         ./dist/RPMS/x86_64/nodejs-[^d.+].* \
         ./dist/RPMS/x86_64/nodejs-npm-[^d.+].* \
-        ./dist/RPMS/x86_64/nodejs-devel-[^d.+].* \
-        copr-cli
+        ./dist/RPMS/x86_64/nodejs-devel-[^d.+].*
 CMD ["node", "-v"]
