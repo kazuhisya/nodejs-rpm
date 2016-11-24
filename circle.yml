@@ -8,7 +8,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t kazuhisya/nodejs-rpm -f docker/Dockerfile-fc24 .
+    - docker build -t kazuhisya/nodejs-rpm -f docker/Dockerfile-fc25 .
 
 test:
   override:
