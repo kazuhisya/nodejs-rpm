@@ -15,7 +15,7 @@ WORKDIR /nodejs-rpm
 RUN rpmdev-setuptree && \
     curl -OLk https://nodejs.org/dist/v$(grep Version: nodejs.spec | tr -s " "| cut -d " " -f 2)/node-v$(grep Version: nodejs.spec | tr -s " "| cut -d " " -f 2).tar.gz && \
     cp *.patch ~/rpmbuild/SOURCES/ ; cp *.md ~/rpmbuild/SOURCES/ ; cp *.tar.gz ~/rpmbuild/SOURCES/
-RUN scl enable devtoolset-2 'rpmbuild -ba ./nodejs.spec'
+RUN scl enable devtoolset-2 'PYTHONHTTPSVERIFY=0 rpmbuild -ba ./nodejs.spec'
 RUN yum install -y \
         --nogpgcheck \
         ~/rpmbuild/RPMS/x86_64/nodejs-[^d.+].* \
