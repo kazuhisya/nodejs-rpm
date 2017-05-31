@@ -2,7 +2,8 @@
 
 | Blanch    | Status     | RPM        |
 |:----------|:----------:|:----------:|
-| `master` (v7, Current) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
+| `master` (v8, Current) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
+| `v7.x` (v7) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
 | `v6.x` (v6, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 | `v4.x` (v4, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 
@@ -38,7 +39,7 @@ $ sudo dnf install -y nodejs nodejs-npm
 ### Tested
 
 - RHEL/CentOS 7 x86_64
-- Fedora23, 24 x86_64
+- Fedora 24 x86_64 or higher
 
 ### Probably it works
 
@@ -55,7 +56,7 @@ $ sudo dnf install -y nodejs nodejs-npm
             - CentOS5.x: [devtools-2](http://people.centos.org/tru/devtools-2/readme)
         - Python 2.7
             - [IUS Community Project](https://ius.io/)
-	- `devtoolset-2-gcc-c++`, `devtoolset-2-binutils`, `python27`
+    - `devtoolset-2-gcc-c++`, `devtoolset-2-binutils`, `python27`
 
 
 
