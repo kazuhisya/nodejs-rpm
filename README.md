@@ -3,7 +3,7 @@
 | Blanch    | Status     | RPM        |
 |:----------|:----------:|:----------:|
 | `master` (v8, Current) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
-| `v7.x` (v7) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
+| `v7.x` (v7) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v7.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v7.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
 | `v6.x` (v6, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 | `v4.x` (v4, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 
@@ -14,7 +14,7 @@
 
 # Compiled Package
 
-- You can find prebuilt rpm binary from here(el7 and fc23, 24)
+- You can find prebuilt rpm binary from here(el7 and fc24 or higher)
     - Stable Release: [FedoraCopr khara/nodejs Copr](https://copr.fedoraproject.org/coprs/khara/nodejs/)
     - LTS Release: [FedoraCopr khara/nodejs-lts Copr](https://copr.fedoraproject.org/coprs/khara/nodejs-lts/)
 
@@ -25,7 +25,7 @@ $ sudo curl -sL -o /etc/yum.repos.d/khara-nodejs.repo https://copr.fedoraproject
 $ sudo yum install -y nodejs nodejs-npm
 ```
 
-fc23, 24:
+fc24 or higher:
 
 ```bash
 $ sudo dnf copr enable khara/nodejs
