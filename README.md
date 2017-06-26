@@ -1,10 +1,11 @@
 #  node.js RPM spec
 
-| Blanch    | Status     |
-|:---------:|:----------:|
-| master(v6)| [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) |
-| LTS(v4)   | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/LTS)|
-| stable-v5 | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/stable-v5.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/stable-v5)|
+| Blanch    | Status     | RPM        |
+|:----------|:----------:|:----------:|
+| `master` (v8, Current) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
+| `v7.x` (v7) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v7.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v7.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
+| `v6.x` (v6, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
+| `v4.x` (v4, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
 - node.js source   : https://nodejs.org/dist/
@@ -32,7 +33,7 @@ $ sudo dnf install -y nodejs nodejs-npm
 
 # Compiled Package
 
-- You can find prebuilt rpm binary from here(el7 and fc23, 24)
+- You can find prebuilt rpm binary from here(el7 and fc24 or higher)
     - Stable Release: [FedoraCopr khara/nodejs Copr](https://copr.fedoraproject.org/coprs/khara/nodejs/)
     - LTS Release: [FedoraCopr khara/nodejs-lts Copr](https://copr.fedoraproject.org/coprs/khara/nodejs-lts/)
 
@@ -43,7 +44,7 @@ $ sudo curl -sL -o /etc/yum.repos.d/khara-nodejs.repo https://copr.fedoraproject
 $ sudo yum install -y nodejs nodejs-npm
 ```
 
-fc23, 24:
+fc24 or higher:
 
 ```bash
 $ sudo dnf copr enable khara/nodejs
@@ -57,7 +58,7 @@ $ sudo dnf install -y nodejs nodejs-npm
 ### Tested
 
 - RHEL/CentOS 7 x86_64
-- Fedora23, 24 x86_64
+- Fedora 24 x86_64 or higher
 
 ### Probably it works
 
@@ -74,7 +75,7 @@ $ sudo dnf install -y nodejs nodejs-npm
             - CentOS5.x: [devtools-2](http://people.centos.org/tru/devtools-2/readme)
         - Python 2.7
             - [IUS Community Project](https://ius.io/)
-	- `devtoolset-2-gcc-c++`, `devtoolset-2-binutils`, `python27`
+    - `devtoolset-2-gcc-c++`, `devtoolset-2-binutils`, `python27`
 
 
 
@@ -103,7 +104,8 @@ git clone and make:
 
 ```bash
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
-# If you want to use the LTS version: git clone -b LTS https://github.com/kazuhisya/nodejs-rpm.git
+# If you want to use other version, You can clone to specify the branch name.
+# example: git clone -b v4.x https://github.com/kazuhisya/nodejs-rpm.git
 $ cd nodejs-rpm
 $ sudo yum-builddep ./nodejs.spec
 ```
