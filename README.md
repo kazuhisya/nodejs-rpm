@@ -10,6 +10,25 @@
 - node.js rpm spec : https://github.com/kazuhisya/nodejs-rpm
 - node.js source   : https://nodejs.org/dist/
 
+# Compiled Package
+
+- You can find prebuilt rpm binary from here(el7 and fc23)
+    - Stable Release: [FedoraCopr khara/nodejs Copr](https://copr.fedoraproject.org/coprs/khara/nodejs/)
+    - LTS Release: [FedoraCopr khara/nodejs-lts Copr](https://copr.fedoraproject.org/coprs/khara/nodejs-lts/)
+
+el7:
+
+```bash
+$ sudo curl -sL -o /etc/yum.repos.d/khara-nodejs.repo https://copr.fedoraproject.org/coprs/khara/nodejs/repo/epel-7/khara-nodejs-epel-7.repo
+$ sudo yum install -y nodejs nodejs-npm
+```
+
+fc23:
+
+```bash
+$ sudo dnf copr enable khara/nodejs
+$ sudo dnf install -y nodejs nodejs-npm
+```
 
 
 # Compiled Package
@@ -116,12 +135,12 @@ el5 : with Devtoolset and python27
 
 ```bash
 $ sudo yum install -y epel-release ius-release
-$ sudo yum install -y yum-utils rpmdevtools buildsys-macros redhat-rpm-config tar make openssl-devel libstdc++-devel zlib-devel gzip 
+$ sudo yum install -y yum-utils rpmdevtools buildsys-macros redhat-rpm-config tar make openssl-devel libstdc++-devel zlib-devel gzip
 $ sudo yum install -y devtoolset-2-gcc-c++ devtoolset-2-binutils python27
 $ git clone https://github.com/kazuhisya/nodejs-rpm.git
 $ cd nodejs-rpm
 $ rpmdev-setuptree
 $ curl -OLk https://nodejs.org/dist/vX.X.X/node-vX.X.X.tar.gz
-$ cp *.patch ~/rpmbuild/SOURCES/ ; cp *.md ~/rpmbuild/SOURCES/ ; cp *.tar.gz ~/rpmbuild/SOURCES/ 
+$ cp *.patch ~/rpmbuild/SOURCES/ ; cp *.md ~/rpmbuild/SOURCES/ ; cp *.tar.gz ~/rpmbuild/SOURCES/
 $ scl enable devtoolset-2 'rpmbuild -ba ./nodejs.spec'
 ```

@@ -28,6 +28,7 @@ else ifeq "$(GCCVERSION_700)" "1"
 		--define "_topdir $(PWD)/dist" \
 		--define "buildroot $(PWD)/dist/install" \
 		--clean \
+		--quiet \
 		$(NAME).spec
 else
 	@echo "C++ compiler too old..."
