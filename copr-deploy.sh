@@ -18,7 +18,7 @@ EOF
 
 version=`awk '$1=="Version:" {print $2}' ${spec_file}`
 release=`awk '/BUILD_NUMBER/ {print $4}' nodejs.spec | tr -d '${BUILD_NUMBER:-' | tr -d '})'`
-srpm_file=./dist/SRPMS/${project_name}-${version}-${release}.fc25.src.rpm
+srpm_file=./dist/SRPMS/${project_name}-${version}-${release}.el7.centos.src.rpm
 copr-cli build --nowait ${project_name} ${srpm_file}
 
 
