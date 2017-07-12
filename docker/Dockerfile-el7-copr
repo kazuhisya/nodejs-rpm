@@ -11,6 +11,6 @@ RUN yum install -y \
         --nogpgcheck \
         ./dist/RPMS/x86_64/nodejs-[^d.+].* \
         ./dist/RPMS/x86_64/nodejs-npm-[^d.+].* \
-        ./dist/RPMS/x86_64/nodejs-devel-[^d.+].* \
-        copr-cli
+        ./dist/RPMS/x86_64/nodejs-devel-[^d.+].*
+RUN yum install -y epel-release && yum install -y copr-cli
 CMD ["node", "-v"]
