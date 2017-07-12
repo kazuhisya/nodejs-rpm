@@ -1,4 +1,4 @@
-FROM fedora:25
+FROM fedora:24
 MAINTAINER Kazuhisa Hara <kazuhisya@gmail.com>
 
 RUN dnf install -y dnf-plugins-core rpmdevtools make
