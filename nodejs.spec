@@ -3,7 +3,7 @@
 %define   _bindir %{_prefix}/bin
 %define   _libdir %{_prefix}/lib
 %define   _node_original_docdir /usr/share/doc/node
-%define   _build_number %(echo ${BUILD_NUMBER:-2})
+%define   _build_number %(echo ${BUILD_NUMBER:-1})
 
 %if 0%{?rhel} == 5
 %define   _datarootdir%{_datadir}
@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       6.11.1
+Version:       6.11.2
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -49,10 +49,6 @@ Patch2: node-js.centos5.icu.patch
 Patch3: node-js.system-icu.patch
 Patch4: node-js.v8_inspector.gyp.patch
 Patch5: node-js.node.gyp-python27.patch
-
-# workaroud for gcc-7 (nodejs 6.11.1)
-# https://github.com/nodejs/node/commit/d9a8f80.diff
-Patch99: d9a8f80.patch
 
 %description
 Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -108,11 +104,6 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}
 
 %if 0%{?suse_version} == 1315
 %patch3 -p1
-%endif
-
-# workaroud for gcc-7 (nodejs 6.11.1)
-%if 0%{?fedora} == 26
-%patch99 -p1
 %endif
 
 %build
@@ -206,6 +197,9 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Tue Aug  1 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 6.11.2-1
+- Updated to node.js version 6.11.2
+- Removed temporary workaround patch for fc26
 * Wed Jul 12 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 6.11.1-2
 - fix build errors with g++ 7
 * Wed Jul 12 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 6.11.1-1
