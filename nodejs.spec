@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       6.11.2
+Version:       6.11.3
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -197,6 +197,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Thu Sep  7 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 6.11.3-1
+- Updated to node.js version 6.11.3
 * Tue Aug  1 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 6.11.2-1
 - Updated to node.js version 6.11.2
 - Removed temporary workaround patch for fc26
