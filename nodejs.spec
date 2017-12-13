@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       8.9.2
+Version:       8.9.3
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -183,6 +183,8 @@ rm -rf $RPM_SOURCE_DIR/%{_base}-v%{version}-linux-%{_node_arch}
 %{tapsetroot}
 
 %changelog
+* Wed Dec 13 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 8.9.3-1
+- updated to node.js version 8.9.3
 * Wed Dec  6 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 8.9.2-1
 - updated to node.js version 8.9.2
 * Wed Nov  8 2017 Kazuhisa Hara <kazuhisya@gmail.com> - 8.9.1-1
