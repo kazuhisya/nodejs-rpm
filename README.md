@@ -38,7 +38,7 @@ $ sudo dnf install -y nodejs nodejs-npm
 ### Tested
 
 - RHEL/CentOS 7 x86_64
-- Fedora 24 x86_64 or higher
+- Fedora 25 x86_64 or higher
 
 ### Probably it works
 
@@ -48,7 +48,7 @@ $ sudo dnf install -y nodejs nodejs-npm
         - CentOS6.x: install `centos-release-scl-rh` package.
     - `devtoolset-3-gcc-c++`, `devtoolset-3-binutils`, `python27`
 
-- RHEL/CentOS/SL/OL 5 x86_64
+- RHEL/CentOS/SL/OL 5 x86_64 (Obsolete)
     - when you try to build on el5, you can use `devtoolset-2` and `python27`
         - Developer Toolset 2
             - RHEL5.x: [Red Hat Developer Toolset 2](https://access.redhat.com/documentation/en-US/Red_Hat_Developer_Toolset/2/)
@@ -70,7 +70,6 @@ Docker environment for building nodejs rpm.
 It will help to build and debug.
 
 - See also: [docker/README.md](https://github.com/kazuhisya/nodejs-rpm/blob/master/docker/README.md)
-- You can also try this:  [Docker Hub kazuhisya/nodejs-rpm](https://hub.docker.com/r/kazuhisya/nodejs-rpm/) (el7 only)
 
 ## Build (el7, el6)
 
@@ -109,7 +108,7 @@ $ cd ./dist/RPMS/x86_64/
 $ sudo yum install ./nodejs-X.X.X-X.el6.x86_64.rpm ./nodejs-npm-X.X.X-X.el6.x86_64.rpm --nogpgcheck
 ```
 
-## Build (el5)
+## Build (el5: Obsolete)
 
 el5 : with Devtoolset and python27
 
