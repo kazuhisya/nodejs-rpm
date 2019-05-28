@@ -13,7 +13,7 @@
 %global tapsetdir %{tapsetroot}/tapset/%{_build_cpu}
 
 Name:          %{_base}js
-Version:       9.11.1
+Version:       10.15.3
 Release:       %{_build_number}%{?dist}
 Provides:      %{_base}js(engine)
 Summary:       Node.js is a server-side JavaScript environment that uses an asynchronous event-driven model.
@@ -33,6 +33,7 @@ BuildRequires: libstdc++-devel
 BuildRequires: zlib-devel
 BuildRequires: gzip
 BuildRequires: python
+BuildRequires: which
 
 %{?el5:BuildRequires: python27}
 %{?el5:BuildRequires: redhat-rpm-config}
