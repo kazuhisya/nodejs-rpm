@@ -2,7 +2,7 @@
 
 | Blanch    | Status     | RPM        |
 |:----------|:----------:|:----------:|
-| `master` (v9, Current) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/master) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs/) |
+| `master` (v10, Current) | I hate Github CI |
 | `v8.x` (v8, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v8.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v8.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 | `v6.x` (v6, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v6.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
 | `v4.x` (v4, LTS) | [![Circle CI](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x.svg?style=shield)](https://circleci.com/gh/kazuhisya/nodejs-rpm/tree/v4.x) | [![FedoraCopr](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/package/nodejs/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/khara/nodejs-lts/) |
